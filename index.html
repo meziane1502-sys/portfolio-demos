@@ -54,6 +54,133 @@
             100% { transform: translate(50px, 50px); }
         }
 
+        /* Animated Mesh Gradient Background */
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .mesh-gradient::before,
+        .mesh-gradient::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: meshMove 20s ease-in-out infinite;
+        }
+
+        .mesh-gradient::before {
+            background: radial-gradient(circle, #3b82f6, transparent);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .mesh-gradient::after {
+            background: radial-gradient(circle, #8b5cf6, transparent);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -10s;
+        }
+
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, 100px) scale(1.1); }
+            50% { transform: translate(-50px, 50px) scale(0.9); }
+            75% { transform: translate(50px, -100px) scale(1.05); }
+        }
+
+        /* Particles Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: fabPulse 2s ease-in-out infinite;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 48px rgba(59, 130, 246, 0.6);
+        }
+
+        .fab::before {
+            content: '↑';
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        @keyframes fabPulse {
+            0%, 100% {
+                box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 48px rgba(59, 130, 246, 0.7);
+            }
+        }
+
+        .fab.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0);
+        }
+
         .hero-content {
             text-align: center;
             z-index: 2;
@@ -822,6 +949,15 @@
     </style>
 </head>
 <body>
+    <!-- Animated Mesh Gradient Background -->
+    <div class="mesh-gradient"></div>
+
+    <!-- Particles Animation -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating Action Button -->
+    <div class="fab hidden" id="fab"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -1228,6 +1364,62 @@
     </footer>
 
     <script>
+        // Particles Animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+
+                // Random animation duration (15-30s)
+                const duration = 15 + Math.random() * 15;
+                particle.style.animationDuration = duration + 's';
+
+                // Random delay
+                particle.style.animationDelay = Math.random() * 5 + 's';
+
+                // Random size (2-6px)
+                const size = 2 + Math.random() * 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Floating Action Button
+        const fab = document.getElementById('fab');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Show FAB after scrolling 300px
+            if (scrollTop > 300) {
+                fab.classList.remove('hidden');
+            } else {
+                fab.classList.add('hidden');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // FAB click - scroll to top
+        fab.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
