@@ -649,6 +649,154 @@
             gap: var(--space-3);
         }
 
+        /* Demo Browser Mockup */
+        .demo-browser-mockup {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mockup-header {
+            background: var(--slate-200);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--slate-300);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 0.375rem;
+        }
+
+        .mockup-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--slate-400);
+        }
+
+        .mockup-dots span:nth-child(1) { background: #ef4444; }
+        .mockup-dots span:nth-child(2) { background: #f59e0b; }
+        .mockup-dots span:nth-child(3) { background: #10b981; }
+
+        .mockup-url {
+            flex: 1;
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--slate-600);
+            text-align: center;
+        }
+
+        .mockup-content {
+            padding: var(--space-4);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .depanpro-preview {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        }
+
+        .autopro-preview {
+            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+        }
+
+        .shopsmart-preview {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+
+        .preview-hero {
+            margin-bottom: var(--space-3);
+        }
+
+        .preview-hero i {
+            width: 48px;
+            height: 48px;
+            margin-bottom: var(--space-2);
+            color: var(--blue-600);
+        }
+
+        .preview-hero h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .preview-hero p {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            margin: 0;
+        }
+
+        .preview-features {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .preview-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--slate-700);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .preview-feature i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .demo-coming-soon {
+            position: relative;
+        }
+
+        .demo-coming-soon .demo-browser-mockup {
+            opacity: 0.6;
+            filter: grayscale(0.3);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-600));
+            color: white;
+            padding: var(--space-3) var(--space-5);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        }
+
+        .coming-soon-badge i {
+            width: 20px;
+            height: 20px;
+        }
+
         /* ==================== TESTIMONIALS ==================== */
         .testimonials {
             padding: var(--space-16) 0;
@@ -1323,7 +1471,26 @@
             <div class="demos-grid">
                 <div class="demo-card reveal">
                     <div class="demo-preview">
-                        <i data-lucide="wrench" style="width: 64px; height: 64px; color: var(--blue-500);"></i>
+                        <div class="demo-browser-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-url">depanpro24-7.com</div>
+                            </div>
+                            <div class="mockup-content depanpro-preview">
+                                <div class="preview-hero">
+                                    <i data-lucide="wrench"></i>
+                                    <h5>DepanPro 24/7</h5>
+                                    <p>Dépannage Auto Rapide</p>
+                                </div>
+                                <div class="preview-features">
+                                    <div class="preview-feature"><i data-lucide="phone"></i> Appel d'urgence</div>
+                                    <div class="preview-feature"><i data-lucide="map-pin"></i> Géolocalisation</div>
+                                    <div class="preview-feature"><i data-lucide="credit-card"></i> Paiement en ligne</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="demo-content">
                         <div class="demo-tags">
@@ -1341,7 +1508,26 @@
 
                 <div class="demo-card reveal">
                     <div class="demo-preview">
-                        <i data-lucide="car" style="width: 64px; height: 64px; color: var(--purple-500);"></i>
+                        <div class="demo-browser-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-url">autopro-ia.com</div>
+                            </div>
+                            <div class="mockup-content autopro-preview">
+                                <div class="preview-hero">
+                                    <i data-lucide="bot"></i>
+                                    <h5>AutoPro IA</h5>
+                                    <p>Gestion Intelligente de Garage</p>
+                                </div>
+                                <div class="preview-features">
+                                    <div class="preview-feature"><i data-lucide="brain"></i> Diagnostic IA</div>
+                                    <div class="preview-feature"><i data-lucide="calculator"></i> Devis auto</div>
+                                    <div class="preview-feature"><i data-lucide="bar-chart"></i> Analytics</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="demo-content">
                         <div class="demo-tags">
@@ -1358,8 +1544,31 @@
                 </div>
 
                 <div class="demo-card reveal">
-                    <div class="demo-preview">
-                        <i data-lucide="store" style="width: 64px; height: 64px; color: var(--indigo-500);"></i>
+                    <div class="demo-preview demo-coming-soon">
+                        <div class="coming-soon-badge">
+                            <i data-lucide="clock"></i>
+                            <span>Bientôt disponible</span>
+                        </div>
+                        <div class="demo-browser-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-url">shopsmart-ia.com</div>
+                            </div>
+                            <div class="mockup-content shopsmart-preview">
+                                <div class="preview-hero">
+                                    <i data-lucide="shopping-bag"></i>
+                                    <h5>ShopSmart IA</h5>
+                                    <p>E-commerce Intelligent</p>
+                                </div>
+                                <div class="preview-features">
+                                    <div class="preview-feature"><i data-lucide="sparkles"></i> Recommandations IA</div>
+                                    <div class="preview-feature"><i data-lucide="message-circle"></i> Chatbot</div>
+                                    <div class="preview-feature"><i data-lucide="trending-up"></i> Analytics</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="demo-content">
                         <div class="demo-tags">
