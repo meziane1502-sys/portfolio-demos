@@ -816,9 +816,8 @@
         }
 
         .demos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: var(--space-6);
+            column-count: 3;
+            column-gap: var(--space-6);
         }
 
         .demo-card {
@@ -827,11 +826,16 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s var(--ease-smooth);
+            break-inside: avoid;
+            margin-bottom: var(--space-6);
+            display: inline-block;
+            width: 100%;
         }
 
         .demo-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-2xl);
+            border-color: var(--primary-300);
         }
 
         .demo-preview {
@@ -842,6 +846,18 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .demo-tall .demo-preview {
+            aspect-ratio: 4/5;
+        }
+
+        .demo-short .demo-preview {
+            aspect-ratio: 16/10;
+        }
+
+        .demo-medium .demo-preview {
+            aspect-ratio: 1/1;
         }
 
         .demo-preview::before {
@@ -1499,6 +1515,12 @@
         }
 
         /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .demos-grid {
+                column-count: 2;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1520,7 +1542,10 @@
                 min-width: 280px;
             }
 
-            .demos-grid,
+            .demos-grid {
+                column-count: 1;
+            }
+
             .testimonials-grid,
             .pricing-grid {
                 grid-template-columns: 1fr;
@@ -1798,7 +1823,7 @@
             </div>
 
             <div class="demos-grid">
-                <div class="demo-card reveal">
+                <div class="demo-card demo-tall reveal">
                     <div class="demo-preview">
                         <div class="demo-browser-mockup">
                             <div class="mockup-header">
@@ -1835,7 +1860,7 @@
                     </div>
                 </div>
 
-                <div class="demo-card reveal">
+                <div class="demo-card demo-short reveal">
                     <div class="demo-preview">
                         <div class="demo-browser-mockup">
                             <div class="mockup-header">
@@ -1872,7 +1897,7 @@
                     </div>
                 </div>
 
-                <div class="demo-card reveal">
+                <div class="demo-card demo-medium reveal">
                     <div class="demo-preview demo-coming-soon">
                         <div class="coming-soon-badge">
                             <i data-lucide="clock"></i>
