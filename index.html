@@ -122,6 +122,150 @@
             transform: translateY(-3px);
         }
 
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bento Grid Features Section */
+        .features-bento {
+            padding: 100px 40px;
+            background: var(--dark);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bento-item {
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .bento-item.large {
+            grid-column: span 2;
+        }
+
+        .bento-item.wide {
+            grid-column: span 2;
+        }
+
+        .bento-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .bento-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bento-item p {
+            color: #94a3b8;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bento-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Trust Badges Section */
+        .trust-badges {
+            padding: 80px 40px;
+            background: #1e293b;
+        }
+
+        .badges-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .badge-item {
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .badge-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .badge-item h4 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-item p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
         /* Services Section */
         .services {
             padding: 100px 40px;
@@ -466,34 +610,111 @@
         </div>
     </section>
 
+    <!-- Bento Grid Features Section -->
+    <section class="features-bento" id="features">
+        <h2 class="section-title">Pourquoi Nous Choisir</h2>
+        <p class="section-subtitle">Une expertise reconnue au service de votre réussite digitale</p>
+
+        <div class="bento-grid">
+            <div class="bento-item large glass-card">
+                <div class="bento-icon">⚡</div>
+                <h3>Livraison Ultra-Rapide</h3>
+                <p>Votre site livré en 48h chrono. Design, développement, optimisation : tout est inclus pour un lancement express.</p>
+                <div class="bento-badge">Populaire</div>
+            </div>
+
+            <div class="bento-item glass-card">
+                <div class="bento-icon">🎨</div>
+                <h3>Design Sur-Mesure</h3>
+                <p>Chaque projet est unique. Nos designers créent une identité visuelle qui reflète votre marque.</p>
+            </div>
+
+            <div class="bento-item glass-card">
+                <div class="bento-icon">🚀</div>
+                <h3>Performance Optimale</h3>
+                <p>Sites ultra-rapides, SEO optimisés, scores Google PageSpeed 90+.</p>
+            </div>
+
+            <div class="bento-item glass-card">
+                <div class="bento-icon">📱</div>
+                <h3>100% Responsive</h3>
+                <p>Parfait sur tous les écrans : mobile, tablette, desktop.</p>
+            </div>
+
+            <div class="bento-item wide glass-card">
+                <div class="bento-icon">💎</div>
+                <h3>Technologies Modernes</h3>
+                <p>HTML5, CSS3, JavaScript ES6+. Code propre, maintenable et évolutif pour un site pérenne.</p>
+            </div>
+
+            <div class="bento-item glass-card">
+                <div class="bento-icon">🔒</div>
+                <h3>Sécurisé & RGPD</h3>
+                <p>Conformité totale aux normes de sécurité et protection des données.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <h2 class="section-title">Nos Services Premium</h2>
         <p class="section-subtitle">Des solutions clés en main pour transformer votre présence digitale</p>
 
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card glass-card">
                 <div class="service-icon">🚀</div>
                 <h3>Landing Pages One-Page</h3>
                 <p>Sites vitrine ultra-rapides, mobile-first, optimisés pour la conversion. Design moderne et impactant adapté à votre secteur.</p>
             </div>
 
-            <div class="service-card">
+            <div class="service-card glass-card">
                 <div class="service-icon">💼</div>
                 <h3>Sites SaaS & B2B</h3>
                 <p>Landing pages pour produits SaaS avec pricing, features, témoignages. Parfait pour générer des leads qualifiés.</p>
             </div>
 
-            <div class="service-card">
+            <div class="service-card glass-card">
                 <div class="service-icon">📱</div>
                 <h3>Sites Services Locaux</h3>
                 <p>Pages optimisées SEO local pour artisans, commerces, services. Formulaires de contact, appels à l'action stratégiques.</p>
             </div>
 
-            <div class="service-card">
+            <div class="service-card glass-card">
                 <div class="service-icon">⚡</div>
                 <h3>Refonte Express</h3>
                 <p>Modernisation de sites existants en 48h. Design actuel, performances boostées, UX optimisée.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="trust-badges">
+        <h2 class="section-title">Ils Nous Font Confiance</h2>
+        <div class="badges-container">
+            <div class="badge-item glass-card">
+                <div class="badge-icon">✓</div>
+                <h4>+500 Clients</h4>
+                <p>Satisfaits</p>
+            </div>
+            <div class="badge-item glass-card">
+                <div class="badge-icon">⭐</div>
+                <h4>4.9/5</h4>
+                <p>Note Moyenne</p>
+            </div>
+            <div class="badge-item glass-card">
+                <div class="badge-icon">🏆</div>
+                <h4>100%</h4>
+                <p>Projets Livrés</p>
+            </div>
+            <div class="badge-item glass-card">
+                <div class="badge-icon">🚀</div>
+                <h4>48h</h4>
+                <p>Délai Moyen</p>
+            </div>
+            <div class="badge-item glass-card">
+                <div class="badge-icon">💎</div>
+                <h4>Premium</h4>
+                <p>Qualité Garantie</p>
             </div>
         </div>
     </section>
