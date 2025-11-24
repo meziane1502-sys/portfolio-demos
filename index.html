@@ -82,8 +82,8 @@
 
         body {
             font-family: var(--font-sans);
-            background: var(--slate-950);
-            color: var(--slate-100);
+            background: var(--slate-50);
+            color: var(--slate-900);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -121,7 +121,7 @@
         p {
             font-size: 1.125rem;
             line-height: 1.7;
-            color: var(--slate-400);
+            color: var(--slate-600);
         }
 
         /* ==================== CONTAINER ==================== */
@@ -146,7 +146,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.3;
+            opacity: 0.15;
             animation: float 20s ease-in-out infinite;
         }
 
@@ -191,15 +191,15 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(2, 6, 23, 0.8);
+            background: rgba(248, 250, 252, 0.8);
             backdrop-filter: blur(12px) saturate(180%);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
             transition: all 0.3s var(--ease-smooth);
         }
 
         nav.scrolled {
-            background: rgba(2, 6, 23, 0.95);
-            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
         }
 
         .nav-container {
@@ -212,7 +212,7 @@
         .logo {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--slate-50);
+            color: var(--slate-900);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -221,7 +221,7 @@
         }
 
         .logo:hover {
-            color: var(--blue-500);
+            color: var(--blue-600);
         }
 
         .nav-links {
@@ -231,7 +231,7 @@
         }
 
         .nav-links a {
-            color: var(--slate-400);
+            color: var(--slate-600);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9375rem;
@@ -246,12 +246,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--blue-500);
+            background: var(--blue-600);
             transition: width 0.3s var(--ease-smooth);
         }
 
         .nav-links a:hover {
-            color: var(--slate-50);
+            color: var(--slate-900);
         }
 
         .nav-links a:hover::after {
@@ -280,7 +280,7 @@
             display: none;
             background: transparent;
             border: none;
-            color: var(--slate-100);
+            color: var(--slate-900);
             cursor: pointer;
             padding: var(--space-2);
         }
@@ -324,7 +324,7 @@
             max-width: 720px;
             margin: 0 auto var(--space-8);
             font-size: 1.25rem;
-            color: var(--slate-400);
+            color: var(--slate-600);
             animation: fadeInUp 0.6s var(--ease-smooth) 0.4s backwards;
         }
 
@@ -363,14 +363,16 @@
         }
 
         .btn-secondary {
-            background: rgba(148, 163, 184, 0.1);
-            color: var(--slate-100);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: white;
+            color: var(--slate-900);
+            border: 1px solid var(--slate-300);
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-secondary:hover {
-            background: rgba(148, 163, 184, 0.15);
-            border-color: rgba(148, 163, 184, 0.3);
+            background: var(--slate-50);
+            border-color: var(--slate-400);
+            box-shadow: var(--shadow-md);
         }
 
         .hero-demo {
@@ -380,21 +382,20 @@
         }
 
         .demo-browser {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow-2xl);
-            backdrop-filter: blur(12px);
         }
 
         .browser-header {
-            background: rgba(15, 23, 42, 0.8);
+            background: var(--slate-100);
             padding: var(--space-3);
             display: flex;
             align-items: center;
             gap: var(--space-2);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            border-bottom: 1px solid var(--slate-200);
         }
 
         .browser-dot {
@@ -410,7 +411,7 @@
 
         .browser-content {
             padding: var(--space-8);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(168, 85, 247, 0.03));
             min-height: 400px;
             display: flex;
             align-items: center;
@@ -422,8 +423,9 @@
         /* ==================== STATS ==================== */
         .stats {
             padding: var(--space-12) 0;
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            border-top: 1px solid var(--slate-200);
+            border-bottom: 1px solid var(--slate-200);
+            background: white;
         }
 
         .stats-grid {
@@ -448,7 +450,7 @@
 
         .stat-label {
             font-size: 1rem;
-            color: var(--slate-400);
+            color: var(--slate-600);
             font-weight: 500;
         }
 
@@ -493,12 +495,11 @@
         }
 
         .feature-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 16px;
             padding: var(--space-6);
             transition: all 0.3s var(--ease-smooth);
-            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
         }
@@ -539,7 +540,7 @@
         }
 
         .feature-card h4 {
-            color: var(--slate-50);
+            color: var(--slate-900);
             margin-bottom: var(--space-2);
         }
 
@@ -551,7 +552,7 @@
         /* ==================== DEMOS SHOWCASE ==================== */
         .demos {
             padding: var(--space-16) 0;
-            background: rgba(15, 23, 42, 0.5);
+            background: var(--slate-100);
         }
 
         .demos-grid {
@@ -561,12 +562,11 @@
         }
 
         .demo-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s var(--ease-smooth);
-            backdrop-filter: blur(12px);
         }
 
         .demo-card:hover {
@@ -620,7 +620,7 @@
         }
 
         .demo-content h3 {
-            color: var(--slate-50);
+            color: var(--slate-900);
             margin-bottom: var(--space-2);
         }
 
@@ -655,11 +655,10 @@
         }
 
         .testimonial-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 16px;
             padding: var(--space-6);
-            backdrop-filter: blur(12px);
         }
 
         .testimonial-header {
@@ -686,19 +685,19 @@
         .testimonial-author h5 {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--slate-50);
+            color: var(--slate-900);
             margin-bottom: 0.25rem;
         }
 
         .testimonial-role {
             font-size: 0.875rem;
-            color: var(--slate-500);
+            color: var(--slate-600);
         }
 
         .testimonial-content {
             font-size: 1rem;
             line-height: 1.7;
-            color: var(--slate-300);
+            color: var(--slate-700);
             margin-bottom: var(--space-3);
         }
 
@@ -711,7 +710,7 @@
         /* ==================== PRICING ==================== */
         .pricing {
             padding: var(--space-16) 0;
-            background: rgba(15, 23, 42, 0.5);
+            background: var(--slate-100);
         }
 
         .pricing-grid {
@@ -723,11 +722,10 @@
         }
 
         .pricing-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 16px;
             padding: var(--space-6);
-            backdrop-filter: blur(12px);
             position: relative;
         }
 
@@ -752,7 +750,7 @@
         .pricing-name {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--slate-50);
+            color: var(--slate-900);
             margin-bottom: var(--space-2);
         }
 
@@ -766,17 +764,17 @@
         .pricing-amount {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--slate-50);
+            color: var(--slate-900);
         }
 
         .pricing-period {
             font-size: 1rem;
-            color: var(--slate-500);
+            color: var(--slate-600);
         }
 
         .pricing-description {
             font-size: 0.9375rem;
-            color: var(--slate-400);
+            color: var(--slate-600);
             margin-bottom: var(--space-6);
         }
 
@@ -791,7 +789,7 @@
             gap: var(--space-2);
             padding: var(--space-2) 0;
             font-size: 0.9375rem;
-            color: var(--slate-300);
+            color: var(--slate-700);
         }
 
         .pricing-features li i {
@@ -814,12 +812,11 @@
         }
 
         .faq-item {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: white;
+            border: 1px solid var(--slate-200);
             border-radius: 12px;
             margin-bottom: var(--space-3);
             overflow: hidden;
-            backdrop-filter: blur(12px);
         }
 
         .faq-question {
@@ -827,7 +824,7 @@
             padding: var(--space-4);
             background: transparent;
             border: none;
-            color: var(--slate-50);
+            color: var(--slate-900);
             font-size: 1.125rem;
             font-weight: 600;
             text-align: left;
@@ -840,7 +837,7 @@
         }
 
         .faq-question:hover {
-            color: var(--blue-500);
+            color: var(--blue-600);
         }
 
         .faq-icon {
@@ -859,7 +856,7 @@
 
         .faq-answer-content {
             padding: 0 var(--space-4) var(--space-4);
-            color: var(--slate-400);
+            color: var(--slate-600);
             line-height: 1.7;
         }
 
@@ -870,9 +867,9 @@
         /* ==================== CTA SECTION ==================== */
         .cta-section {
             padding: var(--space-16) 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
+            border-top: 1px solid var(--slate-200);
+            border-bottom: 1px solid var(--slate-200);
         }
 
         .cta-content {
@@ -899,8 +896,8 @@
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: var(--slate-950);
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            background: var(--slate-900);
+            border-top: 1px solid var(--slate-800);
             padding: var(--space-12) 0 var(--space-6);
         }
 
@@ -914,11 +911,12 @@
         .footer-brand h3 {
             font-size: 1.5rem;
             margin-bottom: var(--space-3);
+            color: white;
         }
 
         .footer-brand p {
             font-size: 0.9375rem;
-            color: var(--slate-500);
+            color: var(--slate-400);
             margin-bottom: var(--space-4);
         }
 
@@ -951,7 +949,7 @@
         .footer-column h4 {
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--slate-50);
+            color: white;
             margin-bottom: var(--space-3);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -966,21 +964,21 @@
         }
 
         .footer-links a {
-            color: var(--slate-500);
+            color: var(--slate-400);
             text-decoration: none;
             font-size: 0.9375rem;
             transition: color 0.3s var(--ease-smooth);
         }
 
         .footer-links a:hover {
-            color: var(--blue-500);
+            color: white;
         }
 
         .footer-bottom {
             padding-top: var(--space-6);
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            border-top: 1px solid var(--slate-800);
             text-align: center;
-            color: var(--slate-500);
+            color: var(--slate-400);
             font-size: 0.875rem;
         }
 
