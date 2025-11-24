@@ -1591,20 +1591,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item reveal">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projets livrés</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Démos fonctionnelles</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Clients satisfaits</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Code personnalisé</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support disponible</div>
+                    <div class="stat-number">Rapide</div>
+                    <div class="stat-label">Réponse sous 24h</div>
                 </div>
                 <div class="stat-item reveal">
-                    <div class="stat-number">15j</div>
-                    <div class="stat-label">Délai moyen</div>
+                    <div class="stat-number">Moderne</div>
+                    <div class="stat-label">Technologies 2025</div>
                 </div>
             </div>
         </div>
@@ -1803,84 +1803,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-badge">Témoignages</span>
-                <h2 class="section-title">Ce que disent nos clients</h2>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="assets/images/avatar-marc.png" alt="Marc Durand">
-                        </div>
-                        <div class="testimonial-author">
-                            <h5>Marc Durand</h5>
-                            <p class="testimonial-role">CEO, TechServices</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        "Une solution exceptionnelle qui a transformé notre présence en ligne. Le site DepanPro nous a permis d'augmenter nos réservations de 300% en 3 mois."
-                    </div>
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="assets/images/avatar-sophie.png" alt="Sophie Martin">
-                        </div>
-                        <div class="testimonial-author">
-                            <h5>Sophie Martin</h5>
-                            <p class="testimonial-role">Fondatrice, GarageModerne</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        "L'IA intégrée dans AutoPro nous fait gagner 15h par semaine. Les devis automatiques sont d'une précision incroyable. Un investissement rapidement rentabilisé."
-                    </div>
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <img src="assets/images/avatar-thomas.png" alt="Thomas Bernard">
-                        </div>
-                        <div class="testimonial-author">
-                            <h5>Thomas Bernard</h5>
-                            <p class="testimonial-role">Manager, ServicePlus</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        "Design moderne, performance au top et support réactif. Tout ce qu'on attendait d'un partenaire digital professionnel. Je recommande à 100%."
-                    </div>
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                        <i data-lucide="star" fill="currentColor"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Pricing -->
     <section id="pricing" class="pricing">
         <div class="container">
@@ -2055,7 +1977,11 @@
                     </div>
                 </div>
 
-                <form class="contact-form reveal" id="contactForm">
+                <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="aa920c8d-5ad2-4488-8846-c9094e52047d">
+                    <input type="hidden" name="subject" value="Nouveau message depuis Portfolio Demos">
+                    <input type="hidden" name="from_name" value="Portfolio Demos Contact">
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
@@ -2106,49 +2032,32 @@
                 <div class="footer-brand">
                     <h3>Portfolio Demos</h3>
                     <p>Solutions digitales premium pour entreprises modernes. Sites web, IA, automatisation.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <i data-lucide="github"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i data-lucide="twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i data-lucide="linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Mail">
-                            <i data-lucide="mail"></i>
-                        </a>
-                    </div>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Produits</h4>
+                    <h4>Navigation</h4>
                     <ul class="footer-links">
                         <li><a href="#demos">Démos</a></li>
                         <li><a href="#features">Fonctionnalités</a></li>
                         <li><a href="#pricing">Tarifs</a></li>
-                        <li><a href="#">Templates</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Ressources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Blog</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Entreprise</h4>
+                    <h4>Démos</h4>
                     <ul class="footer-links">
-                        <li><a href="#">À propos</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Confidentialité</a></li>
+                        <li><a href="depannage-auto/index.html">DepanPro 24/7</a></li>
+                        <li><a href="saas-landing/index.html">AutoPro IA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:meziane1502@gmail.com">Email</a></li>
+                        <li><a href="https://wa.me/33658687475" target="_blank">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
@@ -2223,43 +2132,50 @@
         // Contact Form Handling
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                // Get form data
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData);
-
-                // Simple validation
-                if (!data.name || !data.email || !data.message) {
-                    alert('Veuillez remplir tous les champs obligatoires');
-                    return;
-                }
-
-                // Simulate form submission (replace with actual backend later)
                 const submitBtn = contactForm.querySelector('.btn-submit');
                 const originalText = submitBtn.innerHTML;
+
+                // Show loading state
                 submitBtn.innerHTML = '<i data-lucide="loader" class="spinning"></i> Envoi en cours...';
                 submitBtn.disabled = true;
-
-                // Simulate API call
-                setTimeout(() => {
-                    submitBtn.innerHTML = '<i data-lucide="check-circle"></i> Message envoyé !';
-                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-                    // Reset form
-                    setTimeout(() => {
-                        contactForm.reset();
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = '';
-                        submitBtn.disabled = false;
-                        lucide.createIcons();
-                        alert('Merci ! Nous vous répondrons sous 24h.');
-                    }, 2000);
-                }, 1500);
-
-                // Recreate icons
                 lucide.createIcons();
+
+                try {
+                    // Send form data to Web3Forms
+                    const formData = new FormData(contactForm);
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        // Success state
+                        submitBtn.innerHTML = '<i data-lucide="check-circle"></i> Message envoyé !';
+                        submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+                        setTimeout(() => {
+                            contactForm.reset();
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.style.background = '';
+                            submitBtn.disabled = false;
+                            lucide.createIcons();
+                            alert('Merci ! Nous vous répondrons sous 24h.');
+                        }, 2000);
+                    } else {
+                        throw new Error('Échec de l\'envoi');
+                    }
+                } catch (error) {
+                    // Error state
+                    alert('Erreur lors de l\'envoi. Contactez-nous directement par email ou WhatsApp.');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    lucide.createIcons();
+                }
             });
         }
     </script>
