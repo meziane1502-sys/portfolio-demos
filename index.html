@@ -1808,74 +1808,7 @@
             </div>
 
             <div class="hero-illustration">
-                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- Glassmorphism gradient -->
-                        <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:rgba(254,243,199,0.8)"/>
-                            <stop offset="100%" style="stop-color:rgba(224,242,254,0.8)"/>
-                        </linearGradient>
-
-                        <!-- Shadow filters -->
-                        <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-                            <feOffset dx="0" dy="8" result="offsetblur"/>
-                            <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-                            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                    </defs>
-
-                    <!-- Background gradient orbs -->
-                    <circle cx="150" cy="100" r="120" fill="url(#glassGrad)" opacity="0.3" filter="url(#softShadow)"/>
-                    <circle cx="650" cy="350" r="140" fill="url(#glassGrad)" opacity="0.3" filter="url(#softShadow)"/>
-
-                    <!-- Main glassmorphism dashboard -->
-                    <rect x="120" y="60" width="560" height="360" rx="24"
-                          fill="rgba(255,255,255,0.7)"
-                          stroke="rgba(217,119,6,0.3)" stroke-width="2"
-                          filter="url(#softShadow)"
-                          style="backdrop-filter: blur(20px);"/>
-
-                    <!-- Header bar -->
-                    <rect x="120" y="60" width="560" height="60" rx="24"
-                          fill="linear-gradient(135deg, rgba(254,243,199,0.9), rgba(245,158,11,0.9))"/>
-                    <circle cx="150" cy="90" r="8" fill="#ef4444"/>
-                    <circle cx="175" cy="90" r="8" fill="#f59e0b"/>
-                    <circle cx="200" cy="90" r="8" fill="#10b981"/>
-
-                    <!-- Stats cards with glassmorphism -->
-                    <rect x="150" y="150" width="150" height="100" rx="16"
-                          fill="rgba(254,243,199,0.5)"
-                          stroke="rgba(245,158,11,0.4)" stroke-width="2"/>
-                    <text x="225" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#d97706">247</text>
-                    <text x="225" y="220" text-anchor="middle" font-size="14" fill="#92400e">Projets</text>
-
-                    <rect x="325" y="150" width="150" height="100" rx="16"
-                          fill="rgba(224,242,254,0.5)"
-                          stroke="rgba(3,105,161,0.4)" stroke-width="2"/>
-                    <text x="400" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#0369a1">98%</text>
-                    <text x="400" y="220" text-anchor="middle" font-size="14" fill="#075985">Satisfaction</text>
-
-                    <rect x="500" y="150" width="150" height="100" rx="16"
-                          fill="rgba(243,232,255,0.5)"
-                          stroke="rgba(168,85,247,0.4)" stroke-width="2"/>
-                    <text x="575" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#a855f7">24/7</text>
-                    <text x="575" y="220" text-anchor="middle" font-size="14" fill="#7e22ce">Support</text>
-
-                    <!-- Chart visualization -->
-                    <path d="M 150 300 L 200 280 L 250 290 L 300 260 L 350 270 L 400 240 L 450 250 L 500 220 L 550 230 L 600 200 L 650 210"
-                          stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 150 300 L 200 280 L 250 290 L 300 260 L 350 270 L 400 240 L 450 250 L 500 220 L 550 230 L 600 200 L 650 210 L 650 380 L 150 380 Z"
-                          fill="url(#glassGrad)" opacity="0.3"/>
-
-                    <!-- Floating elements -->
-                    <circle cx="680" cy="120" r="20" fill="rgba(245,158,11,0.8)" filter="url(#softShadow)">
-                        <animate attributeName="cy" values="120;110;120" dur="3s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="100" cy="350" r="15" fill="rgba(3,105,161,0.8)" filter="url(#softShadow)">
-                        <animate attributeName="cy" values="350;360;350" dur="4s" repeatCount="indefinite"/>
-                    </circle>
-                </svg>
+                <img src="images/hero/dashboard.png" alt="Dashboard avec glassmorphism" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
             </div>
         </div>
     </div>
@@ -1894,75 +1827,37 @@
 
             <div class="features-carousel">
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="160" height="120" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-                        <text x="100" y="60" text-anchor="middle" font-family="monospace" font-size="14" fill="#92400e">&lt;html&gt;</text>
-                        <text x="100" y="80" text-anchor="middle" font-family="monospace" font-size="14" fill="#92400e">  &lt;body&gt;</text>
-                        <text x="100" y="100" text-anchor="middle" font-family="monospace" font-size="14" fill="#92400e">    ✨</text>
-                        <text x="100" y="120" text-anchor="middle" font-family="monospace" font-size="14" fill="#92400e">  &lt;/body&gt;</text>
-                    </svg>
+                    <img src="images/features/code.png" alt="Code Premium" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>Code Premium</h4>
                     <p>HTML5, CSS3, JavaScript moderne. Code propre, commenté et optimisé pour la performance.</p>
                 </div>
 
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="20" width="120" height="100" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
-                        <rect x="60" y="40" width="80" height="60" rx="4" fill="white"/>
-                        <circle cx="100" cy="135" r="15" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
-                        <rect x="20" y="30" width="15" height="80" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-                    </svg>
+                    <img src="images/features/responsive.png" alt="100% Responsive" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>100% Responsive</h4>
                     <p>Interface adaptative parfaite sur tous les appareils, du mobile au desktop.</p>
                 </div>
 
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="100,20 130,50 160,45 140,75 160,105 130,100 100,130 70,100 40,105 60,75 40,45 70,50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-                        <circle cx="100" cy="75" r="25" fill="#fbbf24"/>
-                        <path d="M 85 75 L 95 85 L 115 65" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="images/features/performance.png" alt="Performance Optimale" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>Performance Optimale</h4>
                     <p>Chargement ultra-rapide, optimisation SEO et scores Lighthouse parfaits.</p>
                 </div>
 
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="70" r="40" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
-                        <circle cx="85" cy="65" r="5" fill="#0369a1"/>
-                        <circle cx="115" cy="65" r="5" fill="#0369a1"/>
-                        <path d="M 80 85 Q 100 95 120 85" stroke="#0369a1" stroke-width="2" fill="none" stroke-linecap="round"/>
-                        <rect x="70" y="110" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-                        <line x1="80" y1="120" x2="120" y2="120" stroke="#f59e0b" stroke-width="2"/>
-                        <line x1="80" y1="130" x2="110" y2="130" stroke="#f59e0b" stroke-width="2"/>
-                    </svg>
+                    <img src="images/features/ai.png" alt="IA Intégrée" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>IA Intégrée</h4>
                     <p>Chatbots intelligents, recommandations personnalisées, automatisation avancée.</p>
                 </div>
 
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="80" r="50" fill="url(#grad-palette)"/>
-                        <defs>
-                            <linearGradient id="grad-palette" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#fef3c7"/>
-                                <stop offset="50%" style="stop-color:#e0f2fe"/>
-                                <stop offset="100%" style="stop-color:#f3e8ff"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M 100 40 L 120 70 L 150 70 L 130 90 L 140 120 L 100 100 L 60 120 L 70 90 L 50 70 L 80 70 Z" fill="#f59e0b"/>
-                    </svg>
+                    <img src="images/features/design.png" alt="Design 2025" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>Design 2025</h4>
                     <p>Tendances actuelles : glassmorphism, gradients, animations fluides.</p>
                 </div>
 
                 <div class="feature-card reveal">
-                    <svg class="feature-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="70" r="45" fill="none" stroke="#f59e0b" stroke-width="3"/>
-                        <circle cx="100" cy="70" r="30" fill="#fef3c7"/>
-                        <text x="100" y="80" text-anchor="middle" font-size="32" fill="#f59e0b">24/7</text>
-                        <path d="M 70 110 Q 100 130 130 110" stroke="#0369a1" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </svg>
+                    <img src="images/features/support.png" alt="Support Dédié" class="feature-illustration" style="width: 100%; height: auto; border-radius: 12px;">
                     <h4>Support Dédié</h4>
                     <p>Assistance technique 24/7, documentation complète et mises à jour gratuites.</p>
                 </div>
@@ -1992,16 +1887,7 @@
                                 <div class="mockup-url">depanpro24-7.com</div>
                             </div>
                             <div class="mockup-content depanpro-preview">
-                                <div class="preview-hero">
-                                    <i data-lucide="wrench"></i>
-                                    <h5>DepanPro 24/7</h5>
-                                    <p>Dépannage Auto Rapide</p>
-                                </div>
-                                <div class="preview-features">
-                                    <div class="preview-feature"><i data-lucide="phone"></i> Appel d'urgence</div>
-                                    <div class="preview-feature"><i data-lucide="map-pin"></i> Géolocalisation</div>
-                                    <div class="preview-feature"><i data-lucide="credit-card"></i> Paiement en ligne</div>
-                                </div>
+                                <img src="images/demos/depanpro.png" alt="DepanPro 24/7" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -2029,16 +1915,7 @@
                                 <div class="mockup-url">autopro-ia.com</div>
                             </div>
                             <div class="mockup-content autopro-preview">
-                                <div class="preview-hero">
-                                    <i data-lucide="bot"></i>
-                                    <h5>AutoPro IA</h5>
-                                    <p>Gestion Intelligente de Garage</p>
-                                </div>
-                                <div class="preview-features">
-                                    <div class="preview-feature"><i data-lucide="brain"></i> Diagnostic IA</div>
-                                    <div class="preview-feature"><i data-lucide="calculator"></i> Devis auto</div>
-                                    <div class="preview-feature"><i data-lucide="bar-chart"></i> Analytics</div>
-                                </div>
+                                <img src="images/demos/autopro.png" alt="AutoPro IA" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -2070,16 +1947,7 @@
                                 <div class="mockup-url">shopsmart-ia.com</div>
                             </div>
                             <div class="mockup-content shopsmart-preview">
-                                <div class="preview-hero">
-                                    <i data-lucide="shopping-bag"></i>
-                                    <h5>ShopSmart IA</h5>
-                                    <p>E-commerce Intelligent</p>
-                                </div>
-                                <div class="preview-features">
-                                    <div class="preview-feature"><i data-lucide="sparkles"></i> Recommandations IA</div>
-                                    <div class="preview-feature"><i data-lucide="message-circle"></i> Chatbot</div>
-                                    <div class="preview-feature"><i data-lucide="trending-up"></i> Analytics</div>
-                                </div>
+                                <img src="images/demos/shopsmart.png" alt="ShopSmart IA" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -2113,6 +1981,7 @@
 
             <div class="pricing-grid">
                 <div class="pricing-card reveal">
+                    <img src="images/pricing/starter.png" alt="Starter" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; display: block; border-radius: 12px;">
                     <h3 class="pricing-name">Starter</h3>
                     <div class="pricing-price">
                         <span class="pricing-amount">499€</span>
@@ -2131,6 +2000,7 @@
 
                 <div class="pricing-card featured reveal">
                     <span class="pricing-badge">Populaire</span>
+                    <img src="images/pricing/business.png" alt="Business" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; display: block; border-radius: 12px;">
                     <h3 class="pricing-name">Business</h3>
                     <div class="pricing-price">
                         <span class="pricing-amount">1499€</span>
@@ -2149,6 +2019,7 @@
                 </div>
 
                 <div class="pricing-card reveal">
+                    <img src="images/pricing/enterprise.png" alt="Enterprise" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; display: block; border-radius: 12px;">
                     <h3 class="pricing-name">Enterprise</h3>
                     <div class="pricing-price">
                         <span class="pricing-amount">Sur devis</span>
@@ -2253,6 +2124,7 @@
 
             <div class="contact-grid">
                 <div class="contact-info reveal">
+                    <img src="images/contact/assistant.png" alt="Assistant IA" style="width: 200px; height: 200px; margin: 0 auto 2rem; display: block; border-radius: 16px;">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i data-lucide="mail"></i>
