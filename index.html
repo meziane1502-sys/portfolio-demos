@@ -539,6 +539,12 @@
             color: var(--blue-500);
         }
 
+        .feature-icon i,
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
         .feature-card h4 {
             color: var(--slate-900);
             margin-bottom: var(--space-2);
@@ -864,34 +870,141 @@
             max-height: 500px;
         }
 
-        /* ==================== CTA SECTION ==================== */
-        .cta-section {
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
             padding: var(--space-16) 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
-            border-top: 1px solid var(--slate-200);
-            border-bottom: 1px solid var(--slate-200);
+            background: white;
         }
 
-        .cta-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--space-8);
+            margin-top: var(--space-8);
         }
 
-        .cta-content h2 {
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: var(--space-3);
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-600);
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            font-size: 0.9375rem;
+            color: var(--slate-600);
+            margin: 0;
+        }
+
+        .contact-item a {
+            font-size: 0.9375rem;
+            color: var(--blue-600);
+            text-decoration: none;
+            transition: color 0.3s var(--ease-smooth);
+        }
+
+        .contact-item a:hover {
+            color: var(--blue-700);
+        }
+
+        .contact-form {
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 16px;
+            padding: var(--space-6);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
             margin-bottom: var(--space-4);
         }
 
-        .cta-content p {
-            margin-bottom: var(--space-6);
-            font-size: 1.25rem;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
         }
 
-        .cta-actions {
-            display: flex;
-            gap: var(--space-3);
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-700);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: var(--space-3);
+            border: 1px solid var(--slate-300);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9375rem;
+            color: var(--slate-900);
+            background: white;
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
             justify-content: center;
-            flex-wrap: wrap;
+            margin-top: var(--space-4);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--slate-500);
+            margin-top: var(--space-3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ==================== FOOTER ==================== */
@@ -1483,22 +1596,100 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="cta-content reveal">
-                <h2>Prêt à démarrer votre projet ?</h2>
-                <p>Discutons de votre projet et trouvons ensemble la solution idéale pour votre entreprise.</p>
-                <div class="cta-actions">
-                    <a href="mailto:contact@portfolio-demos.com" class="btn btn-primary">
-                        <i data-lucide="mail"></i>
-                        Nous contacter
-                    </a>
-                    <a href="#demos" class="btn btn-secondary">
-                        <i data-lucide="play-circle"></i>
-                        Revoir les démos
-                    </a>
+            <div class="section-header reveal">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">Démarrez votre projet</h2>
+                <p class="section-description">
+                    Remplissez le formulaire ci-dessous et nous vous répondrons sous 24h
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:contact@portfolio-demos.com">contact@portfolio-demos.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Paris, France</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>Lun - Ven : 9h - 18h</p>
+                        </div>
+                    </div>
                 </div>
+
+                <form class="contact-form reveal" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78">
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Sélectionnez...</option>
+                                <option value="500-1000">500€ - 1 000€</option>
+                                <option value="1000-3000">1 000€ - 3 000€</option>
+                                <option value="3000+">3 000€ +</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Décrivez votre projet *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Parlez-nous de votre projet..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i data-lucide="send"></i>
+                        Envoyer le message
+                    </button>
+
+                    <p class="form-note">* Champs obligatoires - Vos données sont protégées</p>
+                </form>
             </div>
         </div>
     </section>
@@ -1623,6 +1814,49 @@
                 }
             });
         });
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData);
+
+                // Simple validation
+                if (!data.name || !data.email || !data.message) {
+                    alert('Veuillez remplir tous les champs obligatoires');
+                    return;
+                }
+
+                // Simulate form submission (replace with actual backend later)
+                const submitBtn = contactForm.querySelector('.btn-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i data-lucide="loader" class="spinning"></i> Envoi en cours...';
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i data-lucide="check-circle"></i> Message envoyé !';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+                    // Reset form
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                        lucide.createIcons();
+                        alert('Merci ! Nous vous répondrons sous 24h.');
+                    }, 2000);
+                }, 1500);
+
+                // Recreate icons
+                lucide.createIcons();
+            });
+        }
     </script>
 </body>
 </html>
