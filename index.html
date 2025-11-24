@@ -315,12 +315,14 @@
 
         /* ==================== HERO SECTION ==================== */
         .hero {
-            padding: var(--space-20) 0 var(--space-16);
+            padding: var(--space-16) 0;
             margin-top: 72px;
-            text-align: center;
             position: relative;
-            background: linear-gradient(135deg, var(--navy-50) 0%, white 50%, var(--primary-50) 100%);
+            background: linear-gradient(135deg, var(--navy-50) 0%, white 100%);
             overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -340,6 +342,18 @@
         .hero > .container {
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-visual {
+            position: relative;
         }
 
         .hero-badge {
@@ -371,9 +385,10 @@
         }
 
         .hero-description {
-            max-width: 720px;
-            margin: 0 auto var(--space-8);
-            font-size: 1.25rem;
+            max-width: 560px;
+            margin: 0 0 var(--space-6);
+            font-size: 1.125rem;
+            line-height: 1.7;
             color: var(--slate-600);
             animation: fadeInUp 0.6s var(--ease-smooth) 0.4s backwards;
         }
@@ -381,9 +396,32 @@
         .hero-cta {
             display: flex;
             gap: var(--space-3);
-            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: var(--space-8);
             animation: fadeInUp 0.6s var(--ease-smooth) 0.5s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--space-6);
+            animation: fadeInUp 0.6s var(--ease-smooth) 0.6s backwards;
+        }
+
+        .hero-stat {
+            flex: 1;
+        }
+
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy-700);
+            margin-bottom: var(--space-1);
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            font-weight: 500;
         }
 
         .btn {
@@ -426,53 +464,46 @@
             box-shadow: var(--shadow-md);
         }
 
-        .hero-demo {
-            margin-top: var(--space-12);
-            position: relative;
-            animation: fadeInUp 0.8s var(--ease-smooth) 0.6s backwards;
-            perspective: 1500px;
-            min-height: 500px;
-        }
-
         .hero-mockups-container {
             position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            animation: fadeInRight 0.8s var(--ease-smooth) 0.6s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .hero-mockup {
-            flex: 1;
-            max-width: 380px;
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transition: all 0.4s var(--ease-smooth);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s var(--ease-smooth);
             border: 1px solid var(--slate-200);
         }
 
         .hero-mockup:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
-            z-index: 10;
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
 
         .hero-mockup:nth-child(1) {
-            transform: rotateY(8deg) translateX(20px);
+            grid-column: 1 / 3;
         }
 
-        .hero-mockup:nth-child(2) {
-            z-index: 2;
-            transform: scale(1.08);
-        }
-
+        .hero-mockup:nth-child(2),
         .hero-mockup:nth-child(3) {
-            transform: rotateY(-8deg) translateX(-20px);
+            aspect-ratio: 1;
         }
 
         .hero-mockup-header {
@@ -1465,28 +1496,39 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-mockups-container {
-                flex-direction: column;
-                gap: 1.5rem;
-                min-height: auto;
+            .hero > .container {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
             }
 
-            .hero-mockup {
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-description {
                 max-width: 100%;
             }
 
-            .hero-mockup:nth-child(1),
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-mockups-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+
+            .hero-mockup:nth-child(1) {
+                grid-column: 1;
+            }
+
             .hero-mockup:nth-child(2),
             .hero-mockup:nth-child(3) {
-                transform: none;
-            }
-
-            .hero-mockup:hover {
-                transform: translateY(-4px);
-            }
-
-            .hero-demo {
-                min-height: auto;
+                aspect-ratio: 16 / 10;
             }
         }
 
@@ -1537,28 +1579,51 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>
-                Créez des sites web <br>
-                <span class="gradient-text">professionnels en minutes</span>
-            </h1>
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <i data-lucide="sparkles"></i>
+                    Solutions Digitales Premium
+                </span>
 
-            <p class="hero-description">
-                Découvrez notre collection de démos premium : sites vitrine, solutions IA,
-                automatisation métier. Des templates prêts à l'emploi, personnalisables et optimisés.
-            </p>
+                <h1>
+                    Transformez votre <br>
+                    <span class="gradient-text">présence digitale</span>
+                </h1>
 
-            <div class="hero-cta">
-                <a href="#demos" class="btn btn-primary">
-                    <i data-lucide="play-circle"></i>
-                    Voir les démos
-                </a>
-                <a href="#pricing" class="btn btn-secondary">
-                    <i data-lucide="package"></i>
-                    Découvrir les offres
-                </a>
+                <p class="hero-description">
+                    Découvrez notre collection de solutions web professionnelles : sites vitrine,
+                    applications IA, automatisation métier. Des démos interactives pour visualiser
+                    votre futur projet.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#demos" class="btn btn-primary">
+                        <i data-lucide="play-circle"></i>
+                        Explorer les démos
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i data-lucide="message-circle"></i>
+                        Discuter du projet
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">3</div>
+                        <div class="hero-stat-label">Démos live</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-label">Personnalisable</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">24h</div>
+                        <div class="hero-stat-label">Réponse rapide</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="hero-demo">
+            <div class="hero-visual">
                 <div class="hero-mockups-container">
                     <!-- DepanPro Mockup -->
                     <div class="hero-mockup">
@@ -1637,30 +1702,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item reveal">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Démos fonctionnelles</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Code personnalisé</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">Rapide</div>
-                    <div class="stat-label">Réponse sous 24h</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">Moderne</div>
-                    <div class="stat-label">Technologies 2025</div>
                 </div>
             </div>
         </div>
