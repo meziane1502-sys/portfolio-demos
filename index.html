@@ -3,145 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Demos - Sites Web Premium</title>
+    <title>CENTURION Web Agency - Sites Premium en 48h</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
-            color: white;
-            padding: 40px 20px;
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --light: #f8fafc;
         }
-        .container { max-width: 1000px; margin: 0 auto; }
-        h1 {
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            z-index: 2;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 40px;
+            background: var(--dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .subtitle {
+
+        .section-subtitle {
             text-align: center;
             color: #94a3b8;
-            margin-bottom: 50px;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .demos-grid {
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        /* Statistics Section */
+        .statistics {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 40px;
+            background: var(--dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-suffix {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #94a3b8;
+        }
+
+        .features-list li:before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 800;
+            margin-right: 12px;
+        }
+
+        /* Demos Section */
+        .demos {
+            padding: 100px 40px;
+            background: #1e293b;
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .demo-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
+
         .demo-card:hover {
-            transform: translateY(-8px);
-            border-color: #3b82f6;
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
         }
+
         .demo-preview {
-            height: 200px;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            height: 220px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
         }
+
         .demo-card:nth-child(2) .demo-preview {
-            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            background: linear-gradient(135deg, #f093fb, #f5576c);
         }
+
         .demo-content {
-            padding: 24px;
+            padding: 30px;
         }
-        .demo-content h2 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+
+        .demo-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
         }
+
         .demo-content p {
             color: #94a3b8;
-            font-size: 0.95rem;
+            line-height: 1.7;
             margin-bottom: 20px;
-            line-height: 1.6;
         }
+
         .demo-tags {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
+
         .tag {
             background: rgba(59, 130, 246, 0.2);
             color: #60a5fa;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.8rem;
-        }
-        .demo-link {
-            display: block;
-            text-align: center;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: all 0.3s;
         }
-        .demo-link:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 40px;
+            background: var(--dark);
         }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
         footer {
+            padding: 60px 40px 40px;
+            background: #0a0f1e;
             text-align: center;
-            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
             color: #64748b;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .pricing-card.featured { transform: scale(1); }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Portfolio Demos</h1>
-        <p class="subtitle">Sites web premium - Prêts à être personnalisés</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sites Web Premium en 48h</h1>
+            <p>Des landing pages ultra-performantes pour propulser votre business. Design moderne, SEO optimisé, conversion maximale.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Démarrer un Projet</a>
+                <a href="#demos" class="btn btn-secondary">Voir les Démos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Nos Services Premium</h2>
+        <p class="section-subtitle">Des solutions clés en main pour transformer votre présence digitale</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Pages One-Page</h3>
+                <p>Sites vitrine ultra-rapides, mobile-first, optimisés pour la conversion. Design moderne et impactant adapté à votre secteur.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Sites SaaS & B2B</h3>
+                <p>Landing pages pour produits SaaS avec pricing, features, témoignages. Parfait pour générer des leads qualifiés.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Sites Services Locaux</h3>
+                <p>Pages optimisées SEO local pour artisans, commerces, services. Formulaires de contact, appels à l'action stratégiques.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Refonte Express</h3>
+                <p>Modernisation de sites existants en 48h. Design actuel, performances boostées, UX optimisée.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>48h</h3>
+                <p>Livraison Express</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Mobile-First</p>
+            </div>
+            <div class="stat-item">
+                <h3>SEO</h3>
+                <p>Optimisé Google</p>
+            </div>
+            <div class="stat-item">
+                <h3>+500</h3>
+                <p>Projets Livrés</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Tarifs Transparents</h2>
+        <p class="section-subtitle">Des prix fixes, pas de surprise. Qualité premium accessible.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">490€</div>
+                <p style="color: #94a3b8; margin-bottom: 20px;">Parfait pour démarrer</p>
+                <ul class="features-list">
+                    <li>Site One-Page responsive</li>
+                    <li>5 sections personnalisées</li>
+                    <li>Formulaire de contact</li>
+                    <li>SEO de base</li>
+                    <li>Livraison en 48h</li>
+                    <li>2 révisions incluses</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Choisir Starter</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-badge">⭐ POPULAIRE</div>
+                <h3>Pro</h3>
+                <div class="price">990€</div>
+                <p style="color: #94a3b8; margin-bottom: 20px;">Le meilleur rapport qualité/prix</p>
+                <ul class="features-list">
+                    <li>Site multi-sections premium</li>
+                    <li>Design 100% sur-mesure</li>
+                    <li>Animations CSS avancées</li>
+                    <li>SEO optimisé + Schema.org</li>
+                    <li>Analytics intégré</li>
+                    <li>3 révisions incluses</li>
+                    <li>Support 30 jours</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Choisir Pro</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">Sur devis</div>
+                <p style="color: #94a3b8; margin-bottom: 20px;">Solutions personnalisées</p>
+                <ul class="features-list">
+                    <li>Tout du pack Pro</li>
+                    <li>Architecture complexe</li>
+                    <li>Intégrations API</li>
+                    <li>CMS personnalisé</li>
+                    <li>Révisions illimitées</li>
+                    <li>Support prioritaire</li>
+                    <li>Maintenance incluse 90j</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Nous Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section class="demos" id="demos">
+        <h2 class="section-title">Nos Réalisations</h2>
+        <p class="section-subtitle">Découvrez nos templates premium prêts à être personnalisés</p>
 
         <div class="demos-grid">
             <div class="demo-card">
                 <div class="demo-preview">🚗</div>
                 <div class="demo-content">
-                    <h2>DepanPro 24/7</h2>
-                    <p>Landing page premium pour services de dépannage automobile. Design moderne, CTAs urgents, formulaire de contact.</p>
+                    <h3>DepanPro 24/7</h3>
+                    <p>Landing page premium pour services de dépannage automobile. Design moderne avec CTAs urgents et formulaire de contact optimisé.</p>
                     <div class="demo-tags">
                         <span class="tag">One-Page</span>
                         <span class="tag">Mobile-First</span>
                         <span class="tag">SEO</span>
                     </div>
-                    <a href="depannage-auto/index.html" class="demo-link">Voir la démo</a>
+                    <a href="depannage-auto/index.html" class="btn btn-primary" style="width: 100%; text-align: center;">Voir la Démo</a>
                 </div>
             </div>
 
             <div class="demo-card">
                 <div class="demo-preview">🔧</div>
                 <div class="demo-content">
-                    <h2>AutoPro IA</h2>
-                    <p>Landing page SaaS pour logiciel de gestion de garage automobile. Sections features, pricing, témoignages.</p>
+                    <h3>AutoPro IA</h3>
+                    <p>Landing page SaaS pour logiciel de gestion de garage automobile. Sections features, pricing 3 tiers, témoignages clients.</p>
                     <div class="demo-tags">
                         <span class="tag">SaaS</span>
                         <span class="tag">Pricing</span>
                         <span class="tag">B2B</span>
                     </div>
-                    <a href="saas-landing/index.html" class="demo-link">Voir la démo</a>
+                    <a href="saas-landing/index.html" class="btn btn-primary" style="width: 100%; text-align: center;">Voir la Démo</a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <footer>
-            <p>Créé avec CENTURION V2 ELITE | Sites livrés en 48h</p>
-        </footer>
-    </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Démarrez Votre Projet</h2>
+        <p class="section-subtitle">Réponse sous 2h • Devis gratuit • Sans engagement</p>
+
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Votre nom</label>
+                <input type="text" placeholder="Jean Dupont" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="jean@entreprise.fr" required>
+            </div>
+
+            <div class="form-group">
+                <label>Téléphone (optionnel)</label>
+                <input type="tel" placeholder="+33 6 12 34 56 78">
+            </div>
+
+            <div class="form-group">
+                <label>Décrivez votre projet</label>
+                <textarea placeholder="Je souhaite créer un site pour mon activité de..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Créé avec <strong>CENTURION V2 ELITE</strong></p>
+        <p style="font-size: 0.9rem;">Sites web premium livrés en 48h • Design moderne • SEO optimisé</p>
+
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#pricing">Tarifs</a>
+            <a href="#demos">Démos</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.85rem;">© 2025 CENTURION Web Agency. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous recontacterons sous 2h.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
