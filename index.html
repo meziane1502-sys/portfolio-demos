@@ -1763,27 +1763,73 @@
             </div>
 
             <div class="hero-illustration">
-                <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background shapes -->
-                    <circle cx="100" cy="100" r="80" fill="#fef3c7" opacity="0.5"/>
-                    <circle cx="700" cy="300" r="100" fill="#e0f2fe" opacity="0.5"/>
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Glassmorphism gradient -->
+                        <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgba(254,243,199,0.8)"/>
+                            <stop offset="100%" style="stop-color:rgba(224,242,254,0.8)"/>
+                        </linearGradient>
 
-                    <!-- Main browser window -->
-                    <rect x="150" y="80" width="500" height="280" rx="12" fill="white" stroke="#e2e8f0" stroke-width="2"/>
-                    <rect x="150" y="80" width="500" height="40" rx="12" fill="#f1f5f9"/>
-                    <circle cx="170" cy="100" r="6" fill="#ec4899"/>
-                    <circle cx="190" cy="100" r="6" fill="#f59e0b"/>
-                    <circle cx="210" cy="100" r="6" fill="#10b981"/>
+                        <!-- Shadow filters -->
+                        <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+                            <feOffset dx="0" dy="8" result="offsetblur"/>
+                            <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+                            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
 
-                    <!-- Content blocks -->
-                    <rect x="180" y="150" width="180" height="100" rx="8" fill="#fef3c7"/>
-                    <rect x="380" y="150" width="240" height="60" rx="8" fill="#e0f2fe"/>
-                    <rect x="380" y="230" width="240" height="60" rx="8" fill="#f3e8ff"/>
-                    <rect x="180" y="270" width="180" height="60" rx="8" fill="#dcfce7"/>
+                    <!-- Background gradient orbs -->
+                    <circle cx="150" cy="100" r="120" fill="url(#glassGrad)" opacity="0.3" filter="url(#softShadow)"/>
+                    <circle cx="650" cy="350" r="140" fill="url(#glassGrad)" opacity="0.3" filter="url(#softShadow)"/>
 
-                    <!-- Decorative elements -->
-                    <path d="M 50 200 Q 100 180 150 200" stroke="#d97706" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path d="M 650 100 Q 700 120 750 100" stroke="#0369a1" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Main glassmorphism dashboard -->
+                    <rect x="120" y="60" width="560" height="360" rx="24"
+                          fill="rgba(255,255,255,0.7)"
+                          stroke="rgba(217,119,6,0.3)" stroke-width="2"
+                          filter="url(#softShadow)"
+                          style="backdrop-filter: blur(20px);"/>
+
+                    <!-- Header bar -->
+                    <rect x="120" y="60" width="560" height="60" rx="24"
+                          fill="linear-gradient(135deg, rgba(254,243,199,0.9), rgba(245,158,11,0.9))"/>
+                    <circle cx="150" cy="90" r="8" fill="#ef4444"/>
+                    <circle cx="175" cy="90" r="8" fill="#f59e0b"/>
+                    <circle cx="200" cy="90" r="8" fill="#10b981"/>
+
+                    <!-- Stats cards with glassmorphism -->
+                    <rect x="150" y="150" width="150" height="100" rx="16"
+                          fill="rgba(254,243,199,0.5)"
+                          stroke="rgba(245,158,11,0.4)" stroke-width="2"/>
+                    <text x="225" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#d97706">247</text>
+                    <text x="225" y="220" text-anchor="middle" font-size="14" fill="#92400e">Projets</text>
+
+                    <rect x="325" y="150" width="150" height="100" rx="16"
+                          fill="rgba(224,242,254,0.5)"
+                          stroke="rgba(3,105,161,0.4)" stroke-width="2"/>
+                    <text x="400" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#0369a1">98%</text>
+                    <text x="400" y="220" text-anchor="middle" font-size="14" fill="#075985">Satisfaction</text>
+
+                    <rect x="500" y="150" width="150" height="100" rx="16"
+                          fill="rgba(243,232,255,0.5)"
+                          stroke="rgba(168,85,247,0.4)" stroke-width="2"/>
+                    <text x="575" y="190" text-anchor="middle" font-size="32" font-weight="bold" fill="#a855f7">24/7</text>
+                    <text x="575" y="220" text-anchor="middle" font-size="14" fill="#7e22ce">Support</text>
+
+                    <!-- Chart visualization -->
+                    <path d="M 150 300 L 200 280 L 250 290 L 300 260 L 350 270 L 400 240 L 450 250 L 500 220 L 550 230 L 600 200 L 650 210"
+                          stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 150 300 L 200 280 L 250 290 L 300 260 L 350 270 L 400 240 L 450 250 L 500 220 L 550 230 L 600 200 L 650 210 L 650 380 L 150 380 Z"
+                          fill="url(#glassGrad)" opacity="0.3"/>
+
+                    <!-- Floating elements -->
+                    <circle cx="680" cy="120" r="20" fill="rgba(245,158,11,0.8)" filter="url(#softShadow)">
+                        <animate attributeName="cy" values="120;110;120" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="100" cy="350" r="15" fill="rgba(3,105,161,0.8)" filter="url(#softShadow)">
+                        <animate attributeName="cy" values="350;360;350" dur="4s" repeatCount="indefinite"/>
+                    </circle>
                 </svg>
             </div>
         </div>
