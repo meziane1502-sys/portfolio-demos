@@ -535,11 +535,22 @@
             flex-shrink: 0;
             transition: all 0.3s;
             background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: transparent;
+        }
+
+        .survey-checkbox::after {
+            content: '✓';
+            font-weight: 700;
         }
 
         .survey-option.selected .survey-checkbox {
             background: var(--primary-500);
             border-color: var(--primary-500);
+            color: white;
         }
 
         .survey-option-content h4 {
