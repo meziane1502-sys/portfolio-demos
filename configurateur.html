@@ -527,35 +527,19 @@
             background: #fffbeb;
         }
 
-        .survey-option input {
-            display: none;
-        }
-
         .survey-checkbox {
             width: 24px;
             height: 24px;
             border: 2px solid var(--slate-300);
             border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
             transition: all 0.3s;
             background: white;
         }
 
-        .survey-checkbox svg {
-            display: none;
-        }
-
         .survey-option.selected .survey-checkbox {
             background: var(--primary-500);
             border-color: var(--primary-500);
-            color: white;
-        }
-
-        .survey-option.selected .survey-checkbox svg {
-            display: block;
         }
 
         .survey-option-content h4 {
@@ -947,93 +931,69 @@
 
             <form id="surveyForm">
                 <div class="survey-options">
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="site-vitrine">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="site-vitrine">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Site Vitrine</h4>
                             <p>5-15 pages professionnelles</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="e-commerce">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="e-commerce">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>E-commerce</h4>
                             <p>Boutique en ligne complète</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="chatbot-ia">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="chatbot-ia">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Chatbot IA</h4>
                             <p>Assistant automatique 24/7</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="seo">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="seo">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>SEO Avancé</h4>
                             <p>Visibilité Google optimale</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="automatisation">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="automatisation">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Automatisation</h4>
                             <p>Workflows N8n/Zapier</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="reservation">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="reservation">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Réservation</h4>
                             <p>Calendrier + paiement</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="espace-membre">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="espace-membre">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Espace Membre</h4>
                             <p>Login client + contenu privé</p>
                         </div>
-                    </label>
+                    </div>
 
-                    <label class="survey-option">
-                        <input type="checkbox" name="options" value="maintenance">
-                        <div class="survey-checkbox">
-                            <i data-lucide="check" style="width:16px;height:16px;"></i>
-                        </div>
+                    <div class="survey-option" data-value="maintenance">
+                        <div class="survey-checkbox"></div>
                         <div class="survey-option-content">
                             <h4>Maintenance</h4>
                             <p>Support + mises à jour</p>
                         </div>
-                    </label>
+                    </div>
                 </div>
 
                 <button type="submit" class="survey-submit">
@@ -1144,8 +1104,6 @@
         surveyOptions.forEach(option => {
             option.addEventListener('click', function() {
                 this.classList.toggle('selected');
-                const checkbox = this.querySelector('input[type="checkbox"]');
-                checkbox.checked = !checkbox.checked;
             });
         });
 
@@ -1154,8 +1112,8 @@
             e.preventDefault();
 
             const selected = [];
-            document.querySelectorAll('.survey-option input:checked').forEach(input => {
-                selected.push(input.value);
+            document.querySelectorAll('.survey-option.selected').forEach(option => {
+                selected.push(option.dataset.value);
             });
 
             if (selected.length === 0) {
