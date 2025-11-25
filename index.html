@@ -477,8 +477,14 @@
             gap: var(--space-4);
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
             margin-bottom: var(--space-12);
             animation: fadeInUp 0.6s var(--ease-smooth) 0.5s backwards;
+        }
+
+        .hero-cta .btn {
+            min-width: 180px;
+            justify-content: center;
         }
 
         .hero-illustration {
@@ -866,9 +872,11 @@
         .feature-illustration {
             width: 100%;
             max-width: 280px;
-            height: auto;
+            height: 180px;
+            object-fit: cover;
             margin: 0 auto var(--space-6);
             display: block;
+            border-radius: 12px;
         }
 
         .feature-icon {
@@ -910,8 +918,10 @@
         }
 
         .demos-grid {
-            column-count: 3;
-            column-gap: var(--space-6);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            align-items: start;
         }
 
         .demo-card {
@@ -920,9 +930,8 @@
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.3s var(--ease-smooth);
-            break-inside: avoid;
-            margin-bottom: var(--space-6);
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
             width: 100%;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         }
@@ -934,25 +943,13 @@
         }
 
         .demo-preview {
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/10;
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .demo-tall .demo-preview {
-            aspect-ratio: 4/5;
-        }
-
-        .demo-short .demo-preview {
-            aspect-ratio: 16/10;
-        }
-
-        .demo-medium .demo-preview {
-            aspect-ratio: 1/1;
         }
 
         .demo-preview::before {
@@ -1252,7 +1249,14 @@
             border: 2px solid var(--primary-500);
             box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15), var(--shadow-xl);
             background: linear-gradient(135deg, rgba(254, 243, 199, 0.3), white);
-            transform: scale(1.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 769px) {
+            .pricing-card.featured {
+                transform: scale(1.05);
+            }
         }
 
         .pricing-badge {
@@ -1614,7 +1618,7 @@
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1024px) {
             .demos-grid {
-                column-count: 2;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1645,7 +1649,7 @@
             }
 
             .demos-grid {
-                column-count: 1;
+                grid-template-columns: 1fr;
             }
 
             .testimonials-grid,
@@ -1877,7 +1881,7 @@
             </div>
 
             <div class="demos-grid">
-                <div class="demo-card demo-tall reveal">
+                <div class="demo-card reveal">
                     <div class="demo-preview">
                         <div class="demo-browser-mockup">
                             <div class="mockup-header">
@@ -1905,7 +1909,7 @@
                     </div>
                 </div>
 
-                <div class="demo-card demo-short reveal">
+                <div class="demo-card reveal">
                     <div class="demo-preview">
                         <div class="demo-browser-mockup">
                             <div class="mockup-header">
@@ -1933,7 +1937,7 @@
                     </div>
                 </div>
 
-                <div class="demo-card demo-medium reveal">
+                <div class="demo-card reveal">
                     <div class="demo-preview demo-coming-soon">
                         <div class="coming-soon-badge">
                             <i data-lucide="clock"></i>
