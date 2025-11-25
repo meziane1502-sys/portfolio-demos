@@ -541,12 +541,21 @@
             justify-content: center;
             flex-shrink: 0;
             transition: all 0.3s;
+            background: white;
+        }
+
+        .survey-checkbox svg {
+            display: none;
         }
 
         .survey-option.selected .survey-checkbox {
             background: var(--primary-500);
             border-color: var(--primary-500);
             color: white;
+        }
+
+        .survey-option.selected .survey-checkbox svg {
+            display: block;
         }
 
         .survey-option-content h4 {
