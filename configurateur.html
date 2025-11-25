@@ -535,22 +535,30 @@
             flex-shrink: 0;
             transition: all 0.3s;
             background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: transparent;
+            position: relative;
         }
 
         .survey-checkbox::after {
-            content: '✓';
-            font-weight: 700;
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s;
         }
 
         .survey-option.selected .survey-checkbox {
             background: var(--primary-500);
             border-color: var(--primary-500);
-            color: white;
+        }
+
+        .survey-option.selected .survey-checkbox::after {
+            opacity: 1;
         }
 
         .survey-option-content h4 {
@@ -1168,4 +1176,3 @@
     </script>
 </body>
 </html>
-<!-- Force rebuild Tue Nov 25 17:28:05 CET 2025 -->
