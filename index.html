@@ -1358,66 +1358,128 @@
         }
 
         /* ==================== FAQ ==================== */
-        .faq {
+        /* ==================== PROCESS SECTION ==================== */
+        .process {
             padding: var(--space-16) 0;
+            background: linear-gradient(180deg, var(--slate-50) 0%, white 100%);
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border: 1px solid var(--slate-200);
-            border-radius: 12px;
-            margin-bottom: var(--space-3);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: var(--space-6);
-            background: transparent;
-            border: none;
-            color: var(--slate-900);
-            font-size: 1.125rem;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
+        .process-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-8);
+        }
+
+        .process-step {
+            background: white;
+            border: 2px solid var(--slate-200);
+            border-radius: 16px;
+            padding: var(--space-6);
+            text-align: center;
+            max-width: 220px;
+            position: relative;
             transition: all 0.3s var(--ease-smooth);
-            font-family: inherit;
         }
 
-        .faq-question:hover {
-            color: var(--blue-600);
+        .process-step:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-500);
+            box-shadow: var(--shadow-lg);
         }
 
-        .faq-icon {
-            transition: transform 0.3s var(--ease-smooth);
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
         }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-4) auto var(--space-3);
         }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s var(--ease-smooth);
+        .process-icon i {
+            width: 28px;
+            height: 28px;
+            color: var(--primary-700);
         }
 
-        .faq-answer-content {
-            padding: 0 var(--space-4) var(--space-4);
+        .process-step h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: var(--space-2);
+        }
+
+        .process-step p {
+            font-size: 0.875rem;
             color: var(--slate-600);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 500px;
+        .process-connector {
+            display: flex;
+            align-items: center;
+            padding-top: var(--space-10);
+            color: var(--primary-400);
+        }
+
+        .process-connector i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .process-cta {
+            text-align: center;
+        }
+
+        .process-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        @media (max-width: 1024px) {
+            .process-grid {
+                flex-wrap: wrap;
+                gap: var(--space-6);
+            }
+            .process-connector {
+                display: none;
+            }
+            .process-step {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .process-step {
+                max-width: 100%;
+                width: 100%;
+            }
         }
 
         /* ==================== CONTACT SECTION ==================== */
@@ -1861,7 +1923,7 @@
                 <li><a href="#features">Fonctionnalités</a></li>
                 <li><a href="#demos">Démos</a></li>
                 <li><a href="#pricing">Tarifs</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#process">Processus</a></li>
             </ul>
 
             <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services" target="_blank" class="nav-cta">Démarrer</a>
@@ -1877,7 +1939,7 @@
                 <li><a href="#features">Fonctionnalités</a></li>
                 <li><a href="#demos">Démos</a></li>
                 <li><a href="#pricing">Tarifs</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#process">Processus</a></li>
                 <li><a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services" target="_blank" class="mobile-nav-cta">Démarrer</a></li>
             </ul>
         </div>
@@ -2181,73 +2243,69 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="faq">
+    <section id="process" class="process">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-badge">FAQ</span>
-                <h2 class="section-title">Questions fréquentes</h2>
+                <span class="section-badge">Processus</span>
+                <h2 class="section-title">Comment ça marche ?</h2>
+                <p class="section-description">Un processus simple et transparent en 4 étapes</p>
             </div>
 
-            <div class="faq-container">
-                <div class="faq-item reveal">
-                    <button class="faq-question">
-                        <span>Quel est le délai de livraison ?</span>
-                        <i data-lucide="chevron-down" class="faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Nos sites sont généralement livrés sous 10-15 jours ouvrés selon la formule choisie. Pour les projets Enterprise sur-mesure, le délai est défini lors de l'étude de votre projet.
-                        </div>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="process-number">1</div>
+                    <div class="process-icon">
+                        <i data-lucide="message-circle"></i>
                     </div>
+                    <h3>Contact</h3>
+                    <p>Discutons de votre projet par WhatsApp ou email. Nous analysons vos besoins et objectifs.</p>
                 </div>
 
-                <div class="faq-item reveal">
-                    <button class="faq-question">
-                        <span>Puis-je modifier le site après livraison ?</span>
-                        <i data-lucide="chevron-down" class="faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Absolument ! Nous fournissons une documentation complète et proposons des formations. Vous pouvez aussi souscrire à notre service de maintenance pour déléguer les mises à jour.
-                        </div>
-                    </div>
+                <div class="process-connector">
+                    <i data-lucide="arrow-right"></i>
                 </div>
 
-                <div class="faq-item reveal">
-                    <button class="faq-question">
-                        <span>Les sites sont-ils optimisés pour le SEO ?</span>
-                        <i data-lucide="chevron-down" class="faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Oui, tous nos sites respectent les meilleures pratiques SEO : structure sémantique, balises meta, sitemap, performance optimale, responsive design et contenu optimisé.
-                        </div>
+                <div class="process-step reveal">
+                    <div class="process-number">2</div>
+                    <div class="process-icon">
+                        <i data-lucide="file-text"></i>
                     </div>
+                    <h3>Devis Gratuit</h3>
+                    <p>Recevez une proposition détaillée sous 24h avec le prix, les fonctionnalités et les délais.</p>
                 </div>
 
-                <div class="faq-item reveal">
-                    <button class="faq-question">
-                        <span>Comment fonctionne l'IA intégrée ?</span>
-                        <i data-lucide="chevron-down" class="faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Nous utilisons des modèles IA avancés (GPT-4, Claude) pour les chatbots, recommandations personnalisées et automatisations. L'IA est entraînée sur vos données métier pour des réponses pertinentes.
-                        </div>
-                    </div>
+                <div class="process-connector">
+                    <i data-lucide="arrow-right"></i>
                 </div>
 
-                <div class="faq-item reveal">
-                    <button class="faq-question">
-                        <span>Quel support est inclus ?</span>
-                        <i data-lucide="chevron-down" class="faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Support technique par email/chat selon la formule (30-90 jours), documentation complète, vidéos tutoriels et mises à jour de sécurité gratuites pendant 1 an.
-                        </div>
+                <div class="process-step reveal">
+                    <div class="process-number">3</div>
+                    <div class="process-icon">
+                        <i data-lucide="code"></i>
                     </div>
+                    <h3>Création</h3>
+                    <p>Notre équipe développe votre site avec des points d'étape réguliers. Livraison en 10-15 jours.</p>
                 </div>
+
+                <div class="process-connector">
+                    <i data-lucide="arrow-right"></i>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="process-number">4</div>
+                    <div class="process-icon">
+                        <i data-lucide="rocket"></i>
+                    </div>
+                    <h3>Lancement</h3>
+                    <p>Votre site est en ligne ! Formation incluse + support technique pour démarrer sereinement.</p>
+                </div>
+            </div>
+
+            <div class="process-cta reveal">
+                <a href="https://wa.me/33658687475?text=Bonjour,%20je%20souhaite%20discuter%20de%20mon%20projet" target="_blank" class="btn btn-primary">
+                    <i data-lucide="message-circle"></i>
+                    Démarrer mon projet
+                </a>
             </div>
         </div>
     </section>
@@ -2277,7 +2335,7 @@
                         <li><a href="#demos">Démos</a></li>
                         <li><a href="#features">Fonctionnalités</a></li>
                         <li><a href="#pricing">Tarifs</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#process">Processus</a></li>
                         <li><a href="https://wa.me/33658687475" target="_blank">Contact</a></li>
                     </ul>
                 </div>
