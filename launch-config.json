@@ -1,0 +1,9 @@
+{
+  "launch_offer": {
+    "active": true,
+    "total_places": 10,
+    "places_remaining": 10,
+    "discount_percent": 30,
+    "end_date": null
+  }
+}

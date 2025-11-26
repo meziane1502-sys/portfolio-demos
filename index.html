@@ -691,6 +691,150 @@
             background: var(--accent-600);
         }
 
+        /* ==================== LAUNCH OFFER BANNER ==================== */
+        .launch-banner {
+            background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-600) 100%);
+            color: var(--white);
+            padding: var(--space-5) var(--space-6);
+            text-align: center;
+            margin-bottom: var(--space-10);
+            border-radius: var(--radius-xl);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .launch-banner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--space-2) var(--space-4);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .launch-badge i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .launch-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .launch-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .launch-counter {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-top: var(--space-2);
+        }
+
+        .counter-bar {
+            width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .counter-fill {
+            height: 100%;
+            background: var(--white);
+            border-radius: 100px;
+            transition: width 0.5s var(--ease-out);
+        }
+
+        .counter-text {
+            font-weight: 700;
+            font-size: 0.9375rem;
+        }
+
+        /* Price styling with strikethrough */
+        .price-original {
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            text-decoration: line-through;
+            font-weight: 500;
+            margin-bottom: var(--space-1);
+        }
+
+        .pricing-card.popular .price-original {
+            color: var(--gray-500);
+        }
+
+        .price-discount {
+            display: inline-block;
+            background: var(--accent-100);
+            color: var(--accent-700);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: var(--space-2);
+        }
+
+        .pricing-card.popular .price-discount {
+            background: var(--accent-500);
+            color: var(--white);
+        }
+
+        /* Bonus styling */
+        .pricing-bonus {
+            background: var(--accent-50);
+            border: 1px dashed var(--accent-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-3) var(--space-4);
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.875rem;
+            color: var(--accent-700);
+            font-weight: 500;
+        }
+
+        .pricing-card.popular .pricing-bonus {
+            background: rgba(249, 115, 22, 0.2);
+            border-color: var(--accent-500);
+            color: var(--accent-300);
+        }
+
+        .pricing-bonus i {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .launch-banner {
+                margin: 0 var(--space-4) var(--space-8);
+            }
+
+            .launch-title {
+                font-size: 1.25rem;
+            }
+
+            .counter-bar {
+                width: 150px;
+            }
+        }
+
         /* ==================== PROCESS SECTION ==================== */
         .process-section {
             padding: var(--space-20) var(--space-6);
@@ -1282,12 +1426,35 @@
                 </p>
             </div>
 
+            <!-- Launch Offer Banner -->
+            <div class="launch-banner reveal" id="launch-banner">
+                <div class="launch-banner-content">
+                    <span class="launch-badge">
+                        <i data-lucide="rocket"></i>
+                        Offre de lancement
+                    </span>
+                    <h3 class="launch-title">-30% pour les 10 premiers clients</h3>
+                    <p class="launch-subtitle">Profitez de tarifs exclusifs + bonus offerts</p>
+                    <div class="launch-counter">
+                        <div class="counter-bar">
+                            <div class="counter-fill" id="counter-fill" style="width: 100%;"></div>
+                        </div>
+                        <span class="counter-text" id="counter-text">10/10 places disponibles</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="pricing-bento">
                 <!-- Starter -->
                 <div class="pricing-card reveal">
                     <h3>Starter</h3>
+                    <div class="price-original">690€ <span class="price-discount">-29%</span></div>
                     <div class="price">490€</div>
                     <p class="price-note">Paiement unique</p>
+                    <div class="pricing-bonus">
+                        <i data-lucide="gift"></i>
+                        <span>Bonus : Maintenance 3 mois offerte</span>
+                    </div>
                     <ul class="pricing-features">
                         <li><i data-lucide="check"></i> Site vitrine 1-5 pages</li>
                         <li><i data-lucide="check"></i> Design responsive</li>
@@ -1295,7 +1462,7 @@
                         <li><i data-lucide="check"></i> Hébergement 1 an inclus</li>
                         <li><i data-lucide="check"></i> Livraison en 5-7 jours</li>
                     </ul>
-                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20Starter" class="btn btn-secondary pricing-btn">
+                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20Starter%20(offre%20lancement)" class="btn btn-secondary pricing-btn">
                         Choisir Starter
                     </a>
                 </div>
@@ -1304,8 +1471,13 @@
                 <div class="pricing-card popular reveal">
                     <span class="popular-badge">Populaire</span>
                     <h3>Business</h3>
-                    <div class="price">990€</div>
+                    <div class="price-original">1 290€ <span class="price-discount">-31%</span></div>
+                    <div class="price">890€</div>
                     <p class="price-note">Paiement unique</p>
+                    <div class="pricing-bonus">
+                        <i data-lucide="gift"></i>
+                        <span>Bonus : Pack réseaux sociaux offert</span>
+                    </div>
                     <ul class="pricing-features">
                         <li><i data-lucide="check"></i> Site complet jusqu'à 10 pages</li>
                         <li><i data-lucide="check"></i> Design premium sur mesure</li>
@@ -1313,7 +1485,7 @@
                         <li><i data-lucide="check"></i> Intégration réseaux sociaux</li>
                         <li><i data-lucide="check"></i> Support prioritaire 30 jours</li>
                     </ul>
-                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20Business" class="btn btn-primary pricing-btn">
+                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20Business%20(offre%20lancement)" class="btn btn-primary pricing-btn">
                         Choisir Business
                     </a>
                 </div>
@@ -1321,8 +1493,13 @@
                 <!-- Enterprise -->
                 <div class="pricing-card reveal">
                     <h3>Enterprise</h3>
+                    <div class="price-original">À partir de 2 500€ <span class="price-discount">-20%</span></div>
                     <div class="price">Sur devis</div>
                     <p class="price-note">Projet personnalisé</p>
+                    <div class="pricing-bonus">
+                        <i data-lucide="gift"></i>
+                        <span>Bonus : Audit SEO complet offert</span>
+                    </div>
                     <ul class="pricing-features">
                         <li><i data-lucide="check"></i> Solution IA sur mesure</li>
                         <li><i data-lucide="check"></i> E-commerce / SaaS</li>
@@ -1330,7 +1507,7 @@
                         <li><i data-lucide="check"></i> API & intégrations</li>
                         <li><i data-lucide="check"></i> Support dédié illimité</li>
                     </ul>
-                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20souhaite%20discuter%20d'un%20projet%20sur%20mesure" class="btn btn-secondary pricing-btn">
+                    <a href="https://wa.me/33658687475?text=Bonjour,%20je%20souhaite%20discuter%20d'un%20projet%20sur%20mesure%20(offre%20lancement)" class="btn btn-secondary pricing-btn">
                         Nous contacter
                     </a>
                 </div>
@@ -1502,6 +1679,38 @@
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        // Launch Offer Counter - Reads from launch-config.json
+        async function updateLaunchCounter() {
+            try {
+                const response = await fetch('launch-config.json');
+                const config = await response.json();
+
+                if (config.launch_offer && config.launch_offer.active) {
+                    const remaining = config.launch_offer.places_remaining;
+                    const total = config.launch_offer.total_places;
+                    const percentage = (remaining / total) * 100;
+
+                    const counterFill = document.getElementById('counter-fill');
+                    const counterText = document.getElementById('counter-text');
+
+                    if (counterFill && counterText) {
+                        counterFill.style.width = percentage + '%';
+                        counterText.textContent = remaining + '/' + total + ' places disponibles';
+                    }
+
+                    // Hide banner if no places remaining
+                    if (remaining <= 0) {
+                        const banner = document.getElementById('launch-banner');
+                        if (banner) banner.style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.log('Launch config not loaded, using defaults');
+            }
+        }
+
+        updateLaunchCounter();
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
