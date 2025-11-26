@@ -1,0 +1,20 @@
+{
+  "name": "DevCenturioAI - Solutions Digitales Premium",
+  "short_name": "DevCenturioAI",
+  "description": "Solutions digitales sur mesure : Sites web, Applications IA, Automatisation. Transformez votre business avec l'intelligence artificielle.",
+  "start_url": "/portfolio-demos/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#d97706",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "development"],
+  "lang": "fr-FR"
+}
