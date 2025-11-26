@@ -1869,3 +1869,90 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ==================== FAQ SECTION ==================== */
+        .faq {
+            padding: var(--space-16) 0;
+            background: linear-gradient(180deg, var(--slate-50) 0%, white 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+            overflow: hidden;
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-300);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4) var(--space-5);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            color: var(--slate-800);
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-600);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--slate-400);
+            transition: transform 0.3s var(--ease-smooth);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--primary-600);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s var(--ease-smooth), padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-content {
+            padding: 0 var(--space-5) var(--space-4);
+            color: var(--slate-600);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .faq-question {
+                padding: var(--space-3) var(--space-4);
+                font-size: 0.9375rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 var(--space-4) var(--space-3);
+                font-size: 0.9375rem;
+            }
+        }

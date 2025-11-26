@@ -2328,6 +2328,93 @@
         </a>
     </div>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">Questions fréquentes</h2>
+                <p class="section-description">
+                    Tout ce que vous devez savoir avant de démarrer
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Quels sont les délais de livraison ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Un site vitrine est livré en 5 à 7 jours ouvrés. Pour les projets plus complexes (e-commerce, IA), comptez 2 à 3 semaines. Vous recevez un accès preview pendant le développement pour suivre l'avancement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Que comprend exactement le prix affiché ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Le prix inclut : design personnalisé, développement complet, responsive mobile/tablette, optimisation SEO de base, hébergement 1 an, nom de domaine 1 an, et formation à l'utilisation. Aucun frais caché.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Puis-je demander des modifications après livraison ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Oui, vous bénéficiez de révisions illimitées pendant 30 jours après la livraison. Au-delà, les modifications mineures restent gratuites. Pour les évolutions majeures, un devis vous sera proposé.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Comment se passe le paiement ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Paiement en 2 fois : 50% à la commande pour démarrer, 50% à la livraison une fois que vous êtes satisfait. Paiement par virement ou PayPal. Facture fournie.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Y a-t-il une garantie satisfait ou remboursé ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Oui, garantie 14 jours. Si le résultat final ne correspond pas à ce qui a été validé ensemble, vous êtes remboursé intégralement. Notre objectif : votre satisfaction totale.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>Je ne suis pas technique, c'est un problème ?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">
+                            Pas du tout ! On s'occupe de tout : hébergement, configuration, mise en ligne. Vous recevez une formation personnalisée pour gérer votre site en autonomie. Et le support WhatsApp reste disponible 7j/7.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -2505,6 +2592,24 @@
                 }
             });
         }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked one if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
