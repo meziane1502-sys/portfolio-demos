@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +14,34 @@
             --warning: #f59e0b;
             --danger: #ef4444;
             --info: #3b82f6;
-            --bg-dark: #0a0a0f;
+        }
+
+        /* Dark Theme (default) */
+        [data-theme="dark"] {
+            --bg-main: #0a0a0f;
+            --bg-sidebar: rgba(10, 10, 15, 0.95);
             --bg-card: rgba(255, 255, 255, 0.03);
             --bg-card-hover: rgba(255, 255, 255, 0.06);
             --border: rgba(255, 255, 255, 0.1);
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --text-muted: #6b7280;
+            --skeleton-base: rgba(255, 255, 255, 0.05);
+            --skeleton-shine: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --skeleton-base: #e2e8f0;
+            --skeleton-shine: #f1f5f9;
         }
 
         * {
@@ -31,13 +52,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
+            background: var(--bg-main);
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* Animated Background */
+        /* Animated Background - Dark only */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -49,6 +71,12 @@
                 radial-gradient(ellipse at 20% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        [data-theme="light"] .bg-animation {
+            opacity: 0;
         }
 
         /* Layout */
@@ -60,12 +88,13 @@
 
         /* Sidebar */
         .sidebar {
-            background: rgba(10, 10, 15, 0.95);
+            background: var(--bg-sidebar);
             border-right: 1px solid var(--border);
             padding: 24px;
             display: flex;
             flex-direction: column;
             backdrop-filter: blur(20px);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .logo {
@@ -85,6 +114,7 @@
             justify-content: center;
             font-weight: 700;
             font-size: 18px;
+            color: white;
         }
 
         .logo-text {
@@ -144,6 +174,7 @@
             background: var(--bg-card);
             border-radius: 12px;
             border: 1px solid var(--border);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .user-info {
@@ -161,6 +192,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            color: white;
         }
 
         .user-name {
@@ -200,7 +232,45 @@
         .header-actions {
             display: flex;
             gap: 12px;
+            align-items: center;
         }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover svg {
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        .sun-icon { display: none; }
+        .moon-icon { display: block; }
+
+        [data-theme="light"] .sun-icon { display: block; }
+        [data-theme="light"] .moon-icon { display: none; }
 
         .btn {
             padding: 10px 20px;
@@ -235,6 +305,40 @@
             background: var(--bg-card-hover);
         }
 
+        /* Skeleton Loading */
+        .skeleton {
+            background: var(--skeleton-base);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skeleton::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, var(--skeleton-shine), transparent);
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skeleton-text {
+            height: 32px;
+            width: 120px;
+        }
+
+        .skeleton-small {
+            height: 20px;
+            width: 80px;
+        }
+
         /* Stats Grid */
         .stats-grid {
             display: grid;
@@ -253,6 +357,10 @@
             overflow: hidden;
         }
 
+        [data-theme="light"] .stat-card {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
         .stat-card::before {
             content: '';
             position: absolute;
@@ -268,7 +376,7 @@
         .stat-card:hover {
             transform: translateY(-4px);
             border-color: rgba(168, 85, 247, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .stat-card:hover::before {
@@ -321,6 +429,7 @@
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 4px;
+            min-height: 40px;
         }
 
         .stat-label {
@@ -341,6 +450,11 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 24px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        [data-theme="light"] .chart-card {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .chart-header {
@@ -369,6 +483,7 @@
             color: var(--text-secondary);
             background: transparent;
             border: none;
+            font-family: inherit;
         }
 
         .chart-tab.active {
@@ -378,6 +493,40 @@
 
         .chart-tab:hover:not(.active) {
             background: var(--bg-card-hover);
+        }
+
+        /* Donut Chart Container */
+        .donut-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 20px 0;
+        }
+
+        .donut-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-value {
+            color: var(--text-muted);
+            margin-left: auto;
+            font-weight: 500;
         }
 
         /* Activity List */
@@ -391,13 +540,13 @@
             display: flex;
             gap: 16px;
             padding: 16px;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--bg-card-hover);
             border-radius: 12px;
             transition: all 0.2s ease;
         }
 
         .activity-item:hover {
-            background: var(--bg-card-hover);
+            transform: translateX(4px);
         }
 
         .activity-icon {
@@ -462,11 +611,11 @@
         .data-table td {
             padding: 16px;
             font-size: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border);
         }
 
         .data-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--bg-card-hover);
         }
 
         .status-badge {
@@ -503,7 +652,7 @@
 
         .progress-bar {
             height: 8px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--skeleton-base);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -542,6 +691,7 @@
 
         .demo-banner-text {
             font-weight: 500;
+            color: white;
         }
 
         .demo-banner-link {
@@ -584,6 +734,11 @@
             .main-content {
                 padding: 16px;
             }
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
         }
 
         /* Animations */
@@ -599,6 +754,16 @@
             border-radius: 50%;
             animation: pulse 2s infinite;
             margin-right: 8px;
+        }
+
+        /* Fade in animation for loaded content */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -683,6 +848,15 @@
                     <p>Bienvenue ! Voici vos statistiques en temps réel.</p>
                 </div>
                 <div class="header-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" id="themeToggle" title="Changer de thème">
+                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
                     <button class="btn btn-secondary">
                         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -707,7 +881,7 @@
                         </div>
                         <span class="stat-trend up">+12.5%</span>
                     </div>
-                    <div class="stat-value" id="revenue">0</div>
+                    <div class="stat-value" id="revenue"><div class="skeleton skeleton-text"></div></div>
                     <div class="stat-label">Revenus ce mois</div>
                 </div>
 
@@ -720,7 +894,7 @@
                         </div>
                         <span class="stat-trend up">+8.2%</span>
                     </div>
-                    <div class="stat-value" id="orders">0</div>
+                    <div class="stat-value" id="orders"><div class="skeleton skeleton-text"></div></div>
                     <div class="stat-label">Commandes</div>
                 </div>
 
@@ -733,7 +907,7 @@
                         </div>
                         <span class="stat-trend up">+23.1%</span>
                     </div>
-                    <div class="stat-value" id="clients">0</div>
+                    <div class="stat-value" id="clients"><div class="skeleton skeleton-text"></div></div>
                     <div class="stat-label">Nouveaux clients</div>
                 </div>
 
@@ -746,7 +920,7 @@
                         </div>
                         <span class="stat-trend down">-2.4%</span>
                     </div>
-                    <div class="stat-value" id="conversion">0%</div>
+                    <div class="stat-value" id="conversion"><div class="skeleton skeleton-text"></div></div>
                     <div class="stat-label">Taux de conversion</div>
                 </div>
             </div>
@@ -757,9 +931,9 @@
                     <div class="chart-header">
                         <h3 class="chart-title">Revenus & Commandes</h3>
                         <div class="chart-tabs">
-                            <button class="chart-tab active">7 jours</button>
-                            <button class="chart-tab">30 jours</button>
-                            <button class="chart-tab">90 jours</button>
+                            <button class="chart-tab active" data-period="7">7 jours</button>
+                            <button class="chart-tab" data-period="30">30 jours</button>
+                            <button class="chart-tab" data-period="90">90 jours</button>
                         </div>
                     </div>
                     <canvas id="revenueChart" height="100"></canvas>
@@ -767,63 +941,38 @@
 
                 <div class="chart-card">
                     <div class="chart-header">
-                        <h3 class="chart-title">Activité récente</h3>
+                        <h3 class="chart-title">Ventes par catégorie</h3>
                     </div>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="activity-icon sale">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                    <div class="donut-container">
+                        <canvas id="donutChart" width="180" height="180"></canvas>
+                        <div class="donut-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #a855f7;"></span>
+                                <span>Électronique</span>
+                                <span class="legend-value">35%</span>
                             </div>
-                            <div class="activity-content">
-                                <div class="activity-title">Nouvelle vente</div>
-                                <div class="activity-desc">Commande #1234 - 299€</div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #3b82f6;"></span>
+                                <span>Mode</span>
+                                <span class="legend-value">28%</span>
                             </div>
-                            <div class="activity-time">Il y a 2 min</div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-icon user">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                                </svg>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #10b981;"></span>
+                                <span>Maison</span>
+                                <span class="legend-value">22%</span>
                             </div>
-                            <div class="activity-content">
-                                <div class="activity-title">Nouveau client</div>
-                                <div class="activity-desc">Marie Martin s'est inscrite</div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #f59e0b;"></span>
+                                <span>Sport</span>
+                                <span class="legend-value">15%</span>
                             </div>
-                            <div class="activity-time">Il y a 15 min</div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-icon alert">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                                </svg>
-                            </div>
-                            <div class="activity-content">
-                                <div class="activity-title">Stock faible</div>
-                                <div class="activity-desc">Produit ABC - 5 restants</div>
-                            </div>
-                            <div class="activity-time">Il y a 1h</div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-icon sale">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div class="activity-content">
-                                <div class="activity-title">Nouvelle vente</div>
-                                <div class="activity-desc">Commande #1233 - 149€</div>
-                            </div>
-                            <div class="activity-time">Il y a 2h</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Section -->
-            <div class="bottom-grid">
+            <!-- Middle Section: Activity -->
+            <div class="charts-grid" style="margin-bottom: 32px;">
                 <div class="chart-card">
                     <div class="chart-header">
                         <h3 class="chart-title">Dernières commandes</h3>
@@ -868,6 +1017,53 @@
 
                 <div class="chart-card">
                     <div class="chart-header">
+                        <h3 class="chart-title">Activité récente</h3>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon sale">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Nouvelle vente</div>
+                                <div class="activity-desc">Commande #1234 - 299€</div>
+                            </div>
+                            <div class="activity-time">Il y a 2 min</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon user">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                                </svg>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Nouveau client</div>
+                                <div class="activity-desc">Marie Martin s'est inscrite</div>
+                            </div>
+                            <div class="activity-time">Il y a 15 min</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon alert">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                </svg>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Stock faible</div>
+                                <div class="activity-desc">Produit ABC - 5 restants</div>
+                            </div>
+                            <div class="activity-time">Il y a 1h</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="bottom-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
                         <h3 class="chart-title">Performance par catégorie</h3>
                     </div>
                     <div style="padding-top: 12px;">
@@ -909,6 +1105,50 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Objectifs du mois</h3>
+                    </div>
+                    <div style="padding-top: 12px;">
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-label">Revenus</span>
+                                <span class="progress-value">47 850€ / 60 000€</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill purple" style="width: 0%" data-target="80"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-label">Nouveaux clients</span>
+                                <span class="progress-value">384 / 500</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill blue" style="width: 0%" data-target="77"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-label">Commandes</span>
+                                <span class="progress-value">1 247 / 1 500</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill green" style="width: 0%" data-target="83"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-label">Satisfaction client</span>
+                                <span class="progress-value">4.8 / 5.0</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill orange" style="width: 0%" data-target="96"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -920,8 +1160,49 @@
     </div>
 
     <script>
-        // Animated Counter
+        // ==================== DATA ====================
+        const chartData = {
+            7: {
+                labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+                revenue: [4200, 5800, 4900, 7200, 6100, 8400, 7850],
+                orders: [120, 180, 150, 220, 190, 280, 247]
+            },
+            30: {
+                labels: ['S1', 'S2', 'S3', 'S4'],
+                revenue: [28500, 32100, 29800, 35400],
+                orders: [850, 920, 880, 1050]
+            },
+            90: {
+                labels: ['Jan', 'Fév', 'Mar'],
+                revenue: [95000, 102000, 125800],
+                orders: [2800, 3100, 3700]
+            }
+        };
+
+        // ==================== THEME TOGGLE ====================
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check saved theme
+        const savedTheme = localStorage.getItem('dashboard-theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('dashboard-theme', newTheme);
+
+            // Update charts for new theme
+            updateChartColors();
+        });
+
+        // ==================== SKELETON LOADING ====================
         function animateValue(element, start, end, duration, prefix = '', suffix = '') {
+            // Remove skeleton
+            element.innerHTML = '';
+            element.classList.add('fade-in');
+
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
@@ -935,120 +1216,183 @@
             window.requestAnimationFrame(step);
         }
 
-        // Initialize counters
+        // Initialize counters after "loading"
         document.addEventListener('DOMContentLoaded', () => {
+            // Simulate loading delay
             setTimeout(() => {
-                animateValue(document.getElementById('revenue'), 0, 47850, 2000, '', '€');
-                animateValue(document.getElementById('orders'), 0, 1247, 2000);
-                animateValue(document.getElementById('clients'), 0, 384, 2000);
-                animateValue(document.getElementById('conversion'), 0, 3.8, 2000, '', '%');
-            }, 500);
+                animateValue(document.getElementById('revenue'), 0, 47850, 1500, '', '€');
+                animateValue(document.getElementById('orders'), 0, 1247, 1500);
+                animateValue(document.getElementById('clients'), 0, 384, 1500);
+                animateValue(document.getElementById('conversion'), 0, 3.8, 1500, '', '%');
+            }, 800);
 
             // Animate progress bars
             setTimeout(() => {
                 document.querySelectorAll('.progress-fill').forEach(bar => {
                     bar.style.width = bar.dataset.target + '%';
                 });
-            }, 800);
+            }, 1000);
         });
 
-        // Revenue Chart
+        // ==================== MAIN CHART ====================
+        let revenueChart;
         const ctx = document.getElementById('revenueChart').getContext('2d');
-        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, 'rgba(168, 85, 247, 0.3)');
-        gradient.addColorStop(1, 'rgba(168, 85, 247, 0)');
 
-        const gradient2 = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient2.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-        gradient2.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        function createGradient(color) {
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, color.replace('1)', '0.3)'));
+            gradient.addColorStop(1, color.replace('1)', '0)'));
+            return gradient;
+        }
 
-        new Chart(ctx, {
-            type: 'line',
+        function getChartColors() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            return {
+                gridColor: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+                tickColor: isDark ? '#6b7280' : '#9ca3af',
+                legendColor: isDark ? '#a0a0a0' : '#64748b'
+            };
+        }
+
+        function initRevenueChart(period = 7) {
+            const data = chartData[period];
+            const colors = getChartColors();
+
+            if (revenueChart) {
+                revenueChart.destroy();
+            }
+
+            revenueChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Revenus (€)',
+                        data: data.revenue,
+                        borderColor: '#a855f7',
+                        backgroundColor: createGradient('rgba(168, 85, 247, 1)'),
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#a855f7',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }, {
+                        label: 'Commandes',
+                        data: data.orders,
+                        borderColor: '#3b82f6',
+                        backgroundColor: createGradient('rgba(59, 130, 246, 1)'),
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            align: 'end',
+                            labels: {
+                                color: colors.legendColor,
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: colors.gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: colors.tickColor
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: colors.gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: colors.tickColor
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChartColors() {
+            const colors = getChartColors();
+            if (revenueChart) {
+                revenueChart.options.plugins.legend.labels.color = colors.legendColor;
+                revenueChart.options.scales.x.grid.color = colors.gridColor;
+                revenueChart.options.scales.x.ticks.color = colors.tickColor;
+                revenueChart.options.scales.y.grid.color = colors.gridColor;
+                revenueChart.options.scales.y.ticks.color = colors.tickColor;
+                revenueChart.update();
+            }
+        }
+
+        // ==================== DONUT CHART ====================
+        const donutCtx = document.getElementById('donutChart').getContext('2d');
+        new Chart(donutCtx, {
+            type: 'doughnut',
             data: {
-                labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+                labels: ['Électronique', 'Mode', 'Maison', 'Sport'],
                 datasets: [{
-                    label: 'Revenus',
-                    data: [4200, 5800, 4900, 7200, 6100, 8400, 7850],
-                    borderColor: '#a855f7',
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#a855f7',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                }, {
-                    label: 'Commandes',
-                    data: [120, 180, 150, 220, 190, 280, 247],
-                    borderColor: '#3b82f6',
-                    backgroundColor: gradient2,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#3b82f6',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
+                    data: [35, 28, 22, 15],
+                    backgroundColor: ['#a855f7', '#3b82f6', '#10b981', '#f59e0b'],
+                    borderWidth: 0,
+                    hoverOffset: 8
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                },
+                cutout: '70%',
                 plugins: {
                     legend: {
-                        display: true,
-                        position: 'top',
-                        align: 'end',
-                        labels: {
-                            color: '#a0a0a0',
-                            usePointStyle: true,
-                            padding: 20
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.05)',
-                            drawBorder: false
-                        },
-                        ticks: {
-                            color: '#6b7280'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.05)',
-                            drawBorder: false
-                        },
-                        ticks: {
-                            color: '#6b7280'
-                        }
+                        display: false
                     }
                 }
             }
         });
 
-        // Tab switching
+        // ==================== TAB SWITCHING ====================
         document.querySelectorAll('.chart-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
+
+                const period = parseInt(tab.dataset.period);
+                initRevenueChart(period);
             });
         });
 
-        // Nav item clicking
+        // ==================== NAV ITEM CLICK ====================
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', () => {
                 document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
             });
         });
+
+        // ==================== INIT ====================
+        initRevenueChart(7);
     </script>
 </body>
 </html>
