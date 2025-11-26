@@ -303,8 +303,13 @@
             color: var(--slate-900);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-600);
         }
 
         .nav-cta {
@@ -1812,6 +1817,16 @@
                 display: block;
             }
 
+            /* Reduce orbs on mobile for performance */
+            .orb-1, .orb-2, .orb-3 {
+                animation: none;
+                opacity: 0.08;
+            }
+
+            .orb-1 { width: 300px; height: 300px; }
+            .orb-2 { width: 250px; height: 250px; }
+            .orb-3 { display: none; }
+
             .hero {
                 padding: var(--space-12) 0 var(--space-10);
             }
@@ -2488,12 +2503,32 @@
 
         // Navbar scroll effect
         const nav = document.getElementById('nav');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id]');
+
         window.addEventListener('scroll', () => {
+            // Navbar background on scroll
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
+
+            // Active section indicator
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
 
         // FAQ Accordion
@@ -2529,15 +2564,21 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); // Initial check
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for anchor links with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const navHeight = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
