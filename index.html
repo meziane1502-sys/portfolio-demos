@@ -1499,32 +1499,53 @@
         }
 
         .chatbot-trigger {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+            background: linear-gradient(135deg, #f97316, #ea580c);
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
-            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4), 0 0 0 4px rgba(249, 115, 22, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-trigger::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 50%;
         }
 
         .chatbot-trigger:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
+            transform: scale(1.08);
+            box-shadow: 0 6px 30px rgba(249, 115, 22, 0.5), 0 0 0 6px rgba(249, 115, 22, 0.2);
         }
 
-        .chatbot-trigger i {
+        .chatbot-trigger svg {
             width: 28px;
             height: 28px;
-            color: var(--white);
+            color: white;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: all 0.3s ease;
         }
 
         .chatbot-icon-close {
             display: none;
+            position: absolute;
+        }
+
+        .chatbot-icon-open {
+            display: block;
         }
 
         .chatbot-widget.open .chatbot-icon-open {
@@ -1533,6 +1554,51 @@
 
         .chatbot-widget.open .chatbot-icon-close {
             display: block;
+        }
+
+        /* Notification badge */
+        .chatbot-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 18px;
+            height: 18px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Texte flottant */
+        .chatbot-label {
+            position: absolute;
+            right: 72px;
+            background: white;
+            padding: 8px 14px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1f2937;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .chatbot-widget:not(.open):hover .chatbot-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .chatbot-widget.open .chatbot-label {
+            display: none;
         }
 
         .chatbot-container {
@@ -2605,9 +2671,21 @@
 
     <!-- Chatbot Widget -->
     <div id="chatbot-widget" class="chatbot-widget">
+        <span class="chatbot-label">Besoin d'aide ?</span>
         <button class="chatbot-trigger" onclick="toggleChatbot()">
-            <i data-lucide="message-circle" class="chatbot-icon-open"></i>
-            <i data-lucide="x" class="chatbot-icon-close"></i>
+            <span class="chatbot-badge"></span>
+            <!-- Message icon (open state) -->
+            <svg class="chatbot-icon-open" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <circle cx="9" cy="10" r="1" fill="white"></circle>
+                <circle cx="12" cy="10" r="1" fill="white"></circle>
+                <circle cx="15" cy="10" r="1" fill="white"></circle>
+            </svg>
+            <!-- X icon (close state) -->
+            <svg class="chatbot-icon-close" viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
         </button>
         <div class="chatbot-container">
             <div class="chatbot-header">
