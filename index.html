@@ -1222,6 +1222,507 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ==================== BLOG SECTION ==================== */
+        .blog-section {
+            padding: var(--space-20) 0;
+            background: var(--gray-50);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            margin-top: var(--space-12);
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .blog-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            background: var(--accent-500);
+            color: var(--white);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-content {
+            padding: var(--space-6);
+        }
+
+        .blog-date {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .blog-content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: var(--space-2) 0 var(--space-3);
+            color: var(--gray-900);
+        }
+
+        .blog-content p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+        }
+
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--accent-500);
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+
+        .blog-link:hover {
+            gap: var(--space-3);
+        }
+
+        .blog-link i {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== CASE STUDY MODAL ==================== */
+        .case-study-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            padding: var(--space-6);
+        }
+
+        .case-study-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .case-study-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: var(--space-8);
+            position: relative;
+        }
+
+        .case-study-close {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            background: var(--gray-100);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .case-study-close:hover {
+            background: var(--gray-200);
+        }
+
+        .case-study-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--gray-900);
+        }
+
+        .case-study-meta {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .case-study-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .case-study-meta i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .case-study-section {
+            margin-bottom: var(--space-6);
+        }
+
+        .case-study-section h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--space-3);
+        }
+
+        .case-study-section h3 i {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-500);
+        }
+
+        .case-study-section p {
+            font-size: 0.9375rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .case-study-results {
+            list-style: none;
+        }
+
+        .case-study-results li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2) 0;
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+        }
+
+        .case-study-results i {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-500);
+        }
+
+        .case-study-footer {
+            display: flex;
+            gap: var(--space-6);
+            padding: var(--space-4);
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-6);
+        }
+
+        .case-study-stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-500);
+        }
+
+        .case-study-cta {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .demo-case-study {
+            cursor: pointer;
+        }
+
+        /* ==================== CHATBOT WIDGET ==================== */
+        .chatbot-widget {
+            position: fixed;
+            bottom: var(--space-6);
+            right: var(--space-6);
+            z-index: 9998;
+        }
+
+        .chatbot-trigger {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s;
+        }
+
+        .chatbot-trigger:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        .chatbot-trigger i {
+            width: 28px;
+            height: 28px;
+            color: var(--white);
+        }
+
+        .chatbot-icon-close {
+            display: none;
+        }
+
+        .chatbot-widget.open .chatbot-icon-open {
+            display: none;
+        }
+
+        .chatbot-widget.open .chatbot-icon-close {
+            display: block;
+        }
+
+        .chatbot-container {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 360px;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .chatbot-widget.open .chatbot-container {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .chatbot-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+            color: var(--white);
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-avatar i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .chatbot-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .chatbot-status {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            display: block;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: var(--space-4);
+            background: var(--gray-50);
+        }
+
+        .chatbot-message {
+            margin-bottom: var(--space-3);
+            max-width: 85%;
+        }
+
+        .chatbot-message.bot {
+            margin-right: auto;
+        }
+
+        .chatbot-message.user {
+            margin-left: auto;
+        }
+
+        .chatbot-message p {
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .chatbot-message.bot p {
+            background: var(--white);
+            color: var(--gray-800);
+            border-bottom-left-radius: var(--radius-sm);
+        }
+
+        .chatbot-message.user p {
+            background: var(--accent-500);
+            color: var(--white);
+            border-bottom-right-radius: var(--radius-sm);
+        }
+
+        .chatbot-message a {
+            color: var(--accent-600);
+            text-decoration: underline;
+        }
+
+        .chatbot-message.user a {
+            color: var(--white);
+        }
+
+        .chatbot-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-top: var(--space-3);
+        }
+
+        .chatbot-quick-replies button {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chatbot-quick-replies button:hover {
+            background: var(--accent-50);
+            border-color: var(--accent-200);
+            color: var(--accent-600);
+        }
+
+        .chatbot-input {
+            display: flex;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border-top: 1px solid var(--gray-200);
+            background: var(--white);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: var(--space-3);
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--accent-400);
+        }
+
+        .chatbot-input button {
+            background: var(--accent-500);
+            border: none;
+            border-radius: var(--radius-md);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .chatbot-input button:hover {
+            background: var(--accent-600);
+        }
+
+        .chatbot-input button i {
+            width: 20px;
+            height: 20px;
+            color: var(--white);
+        }
+
+        .chatbot-widget.pulse .chatbot-trigger {
+            animation: chatbotPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes chatbotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: calc(100vw - 32px);
+                right: -16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1413,9 +1914,51 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Demo 5 - Small - Restaurant -->
+                <div class="demo-card demo-card-small reveal">
+                    <div class="demo-preview">
+                        <img src="images/demos/restaurant.webp" alt="RestoPro" loading="lazy">
+                        <span class="demo-tag">Restaurant</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3>RestoPro</h3>
+                        <p>Site de restaurant avec réservation en ligne, menu digital et commande à emporter.</p>
+                        <span class="demo-link demo-case-study" onclick="showCaseStudy('restopro')">
+                            Voir l'étude de cas
+                            <i data-lucide="file-text"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Demo 6 - Small - Coaching -->
+                <div class="demo-card demo-card-small reveal">
+                    <div class="demo-preview">
+                        <img src="images/demos/coaching.webp" alt="CoachPro" loading="lazy">
+                        <span class="demo-tag">Coaching</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3>CoachPro</h3>
+                        <p>Plateforme de coaching avec prise de RDV, paiement en ligne et espace client.</p>
+                        <span class="demo-link demo-case-study" onclick="showCaseStudy('coachpro')">
+                            Voir l'étude de cas
+                            <i data-lucide="file-text"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="case-study-modal">
+        <div class="case-study-content">
+            <button class="case-study-close" onclick="closeCaseStudy()">
+                <i data-lucide="x"></i>
+            </button>
+            <div id="case-study-body"></div>
+        </div>
+    </div>
 
     <!-- Pricing Section -->
     <section class="pricing-section" id="pricing">
@@ -1647,6 +2190,72 @@
                     <h3>Livraison</h3>
                     <p>Mise en ligne, formation et support inclus</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">Blog</span>
+                <h2 class="section-title">Nos derniers articles</h2>
+                <p class="section-description">
+                    Conseils, tendances et actualités du digital
+                </p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card reveal">
+                    <div class="blog-image">
+                        <img src="images/blog/ia-business.webp" alt="IA pour les entreprises" loading="lazy">
+                        <span class="blog-category">Intelligence Artificielle</span>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">5 Décembre 2025</time>
+                        <h3>Comment l'IA transforme les PME en 2025</h3>
+                        <p>Découvrez comment les petites entreprises utilisent l'intelligence artificielle pour automatiser leurs tâches et augmenter leur productivité.</p>
+                        <a href="#" class="blog-link">
+                            Lire l'article
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card reveal">
+                    <div class="blog-image">
+                        <img src="images/blog/site-web.webp" alt="Site web moderne" loading="lazy">
+                        <span class="blog-category">Web Design</span>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">28 Novembre 2025</time>
+                        <h3>5 éléments indispensables d'un site web qui convertit</h3>
+                        <p>Les clés pour transformer vos visiteurs en clients grâce à un design optimisé et une expérience utilisateur irréprochable.</p>
+                        <a href="#" class="blog-link">
+                            Lire l'article
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card reveal">
+                    <div class="blog-image">
+                        <img src="images/blog/automatisation.webp" alt="Automatisation business" loading="lazy">
+                        <span class="blog-category">Automatisation</span>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">15 Novembre 2025</time>
+                        <h3>Automatiser son business : par où commencer ?</h3>
+                        <p>Guide pratique pour identifier les tâches à automatiser et gagner des heures chaque semaine grâce aux bons outils.</p>
+                        <a href="#" class="blog-link">
+                            Lire l'article
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -1894,6 +2503,222 @@
                 }
             });
         });
+
+        // Case Study Modal Functions
+        const caseStudies = {
+            restopro: {
+                title: 'RestoPro - Étude de Cas',
+                client: 'Restaurant La Belle Époque',
+                industry: 'Restauration',
+                challenge: 'Le restaurant perdait des réservations à cause d\'un système téléphonique saturé et d\'une visibilité en ligne limitée.',
+                solution: 'Site vitrine moderne avec système de réservation en ligne, menu digital interactif et intégration Google Business.',
+                results: [
+                    '+150% de réservations en ligne',
+                    '-40% d\'appels téléphoniques',
+                    '+85% de visibilité Google',
+                    'ROI positif en 3 mois'
+                ],
+                duration: '7 jours',
+                price: '890€'
+            },
+            coachpro: {
+                title: 'CoachPro - Étude de Cas',
+                client: 'Marie D. - Coach en développement personnel',
+                industry: 'Coaching / Formation',
+                challenge: 'Gestion manuelle des RDV chronophage, pas d\'espace client et difficultés à gérer les paiements.',
+                solution: 'Plateforme complète avec prise de RDV automatisée, paiement Stripe intégré et espace client personnalisé.',
+                results: [
+                    '+200% de clients mensuels',
+                    '10h/semaine économisées',
+                    '0 impayé grâce au paiement automatique',
+                    'Image professionnelle renforcée'
+                ],
+                duration: '10 jours',
+                price: '1 490€'
+            }
+        };
+
+        function showCaseStudy(studyId) {
+            const study = caseStudies[studyId];
+            if (!study) return;
+
+            const modal = document.getElementById('case-study-modal');
+            const body = document.getElementById('case-study-body');
+
+            body.innerHTML = `
+                <h2>${study.title}</h2>
+                <div class="case-study-meta">
+                    <span><i data-lucide="building"></i> ${study.client}</span>
+                    <span><i data-lucide="briefcase"></i> ${study.industry}</span>
+                </div>
+                <div class="case-study-section">
+                    <h3><i data-lucide="alert-circle"></i> Le Défi</h3>
+                    <p>${study.challenge}</p>
+                </div>
+                <div class="case-study-section">
+                    <h3><i data-lucide="lightbulb"></i> Notre Solution</h3>
+                    <p>${study.solution}</p>
+                </div>
+                <div class="case-study-section">
+                    <h3><i data-lucide="trending-up"></i> Résultats</h3>
+                    <ul class="case-study-results">
+                        ${study.results.map(r => `<li><i data-lucide="check-circle"></i> ${r}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="case-study-footer">
+                    <div class="case-study-stat">
+                        <span class="stat-label">Durée</span>
+                        <span class="stat-value">${study.duration}</span>
+                    </div>
+                    <div class="case-study-stat">
+                        <span class="stat-label">Investissement</span>
+                        <span class="stat-value">${study.price}</span>
+                    </div>
+                </div>
+                <a href="https://wa.me/33658687475?text=Bonjour,%20je%20suis%20intéressé%20par%20un%20projet%20similaire%20à%20${studyId}" class="btn btn-primary case-study-cta">
+                    <i data-lucide="message-circle"></i>
+                    Je veux un projet similaire
+                </a>
+            `;
+
+            modal.classList.add('active');
+            lucide.createIcons();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCaseStudy() {
+            const modal = document.getElementById('case-study-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.getElementById('case-study-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeCaseStudy();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCaseStudy();
+        });
+    </script>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button class="chatbot-trigger" onclick="toggleChatbot()">
+            <i data-lucide="message-circle" class="chatbot-icon-open"></i>
+            <i data-lucide="x" class="chatbot-icon-close"></i>
+        </button>
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <i data-lucide="bot"></i>
+                </div>
+                <div class="chatbot-info">
+                    <span class="chatbot-name">Assistant DevCenturioAI</span>
+                    <span class="chatbot-status">En ligne</span>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot">
+                    <p>Bonjour ! Je suis l'assistant DevCenturioAI. Comment puis-je vous aider ?</p>
+                </div>
+                <div class="chatbot-quick-replies">
+                    <button onclick="sendQuickReply('tarifs')">Voir les tarifs</button>
+                    <button onclick="sendQuickReply('demos')">Voir les démos</button>
+                    <button onclick="sendQuickReply('contact')">Parler à un humain</button>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input-field" placeholder="Écrivez votre message..." onkeypress="if(event.key==='Enter')sendChatMessage()">
+                <button onclick="sendChatMessage()">
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chatbot Functions
+        let chatbotOpen = false;
+
+        function toggleChatbot() {
+            const widget = document.getElementById('chatbot-widget');
+            chatbotOpen = !chatbotOpen;
+            widget.classList.toggle('open', chatbotOpen);
+        }
+
+        function addBotMessage(text) {
+            const messages = document.getElementById('chatbot-messages');
+            const msg = document.createElement('div');
+            msg.className = 'chatbot-message bot';
+            msg.innerHTML = `<p>${text}</p>`;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const messages = document.getElementById('chatbot-messages');
+            const msg = document.createElement('div');
+            msg.className = 'chatbot-message user';
+            msg.innerHTML = `<p>${text}</p>`;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function sendQuickReply(type) {
+            const replies = {
+                tarifs: {
+                    user: 'Je veux voir les tarifs',
+                    bot: 'Nos formules commencent à 490€ pour un site vitrine ! <a href="#pricing">Voir tous les tarifs</a>. Vous bénéficiez actuellement de -30% avec notre offre de lancement !'
+                },
+                demos: {
+                    user: 'Je veux voir les démos',
+                    bot: 'Excellente idée ! Nous avons plusieurs démos : sites vitrines, dashboards, IA... <a href="#demos">Voir toutes les démos</a>'
+                },
+                contact: {
+                    user: 'Je veux parler à un humain',
+                    bot: 'Bien sûr ! Contactez-nous directement sur WhatsApp pour une réponse rapide : <a href="https://wa.me/33658687475" target="_blank">Ouvrir WhatsApp</a>'
+                }
+            };
+
+            if (replies[type]) {
+                addUserMessage(replies[type].user);
+                setTimeout(() => addBotMessage(replies[type].bot), 500);
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatbot-input-field');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addUserMessage(text);
+            input.value = '';
+
+            // Simple bot responses
+            setTimeout(() => {
+                const lower = text.toLowerCase();
+                if (lower.includes('prix') || lower.includes('tarif') || lower.includes('combien')) {
+                    addBotMessage('Nos formules vont de 490€ à sur-devis. <a href="#pricing">Voir les détails</a>');
+                } else if (lower.includes('délai') || lower.includes('temps') || lower.includes('combien de jours')) {
+                    addBotMessage('Nous livrons en 5 à 15 jours selon la complexité du projet !');
+                } else if (lower.includes('contact') || lower.includes('whatsapp') || lower.includes('appel')) {
+                    addBotMessage('Contactez-nous sur <a href="https://wa.me/33658687475" target="_blank">WhatsApp</a> pour discuter de votre projet !');
+                } else {
+                    addBotMessage('Merci pour votre message ! Pour une réponse personnalisée, contactez-nous sur <a href="https://wa.me/33658687475" target="_blank">WhatsApp</a>.');
+                }
+            }, 800);
+        }
+
+        // Auto-open chatbot after 30 seconds
+        setTimeout(() => {
+            if (!chatbotOpen) {
+                const widget = document.getElementById('chatbot-widget');
+                widget.classList.add('pulse');
+                setTimeout(() => widget.classList.remove('pulse'), 2000);
+            }
+        }, 30000);
     </script>
 </body>
 </html>
