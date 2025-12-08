@@ -6,6 +6,15 @@
     <title>DevCenturioAI - Solutions Digitales Premium</title>
     <meta name="description" content="Découvrez nos démos de solutions digitales professionnelles : Sites web, IA, automatisation.">
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYKQRT67HW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HYKQRT67HW');
+    </script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://meziane1502-sys.github.io/portfolio-demos/">
@@ -1490,6 +1499,376 @@
             cursor: pointer;
         }
 
+        /* ==================== EXIT INTENT POPUP ==================== */
+        .exit-popup {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .exit-popup.active {
+            display: flex;
+        }
+
+        .exit-popup-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: fade-in 0.3s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .exit-popup-content {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            animation: popup-slide-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popup-slide-in {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .exit-popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            transition: all 0.3s;
+        }
+
+        .exit-popup-close:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+            transform: rotate(90deg);
+        }
+
+        .exit-popup-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            animation: bounce-icon 1s ease infinite;
+        }
+
+        @keyframes bounce-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .exit-popup-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .exit-popup-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .exit-popup-subtitle strong {
+            color: #f97316;
+        }
+
+        .exit-popup-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px 0;
+            text-align: left;
+        }
+
+        .exit-popup-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .exit-popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .exit-popup-form input {
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .exit-popup-form input:focus {
+            border-color: #f97316;
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+        }
+
+        .exit-popup-btn {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .exit-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        .exit-popup-btn.success {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .exit-popup-privacy {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 480px) {
+            .exit-popup-content {
+                padding: 30px 24px;
+            }
+
+            .exit-popup-icon {
+                font-size: 3rem;
+            }
+
+            .exit-popup-title {
+                font-size: 1.5rem;
+            }
+
+            .exit-popup-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* ==================== PROMO BANNER ==================== */
+        .promo-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            background: linear-gradient(90deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transform: translateY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .promo-banner.hidden {
+            transform: translateY(-100%);
+        }
+
+        .promo-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .promo-fire {
+            font-size: 1.3rem;
+            animation: fire-pulse 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes fire-pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        .promo-text {
+            color: white;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .promo-text strong {
+            background: linear-gradient(90deg, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .promo-separator {
+            color: #64748b;
+            font-weight: 300;
+        }
+
+        .promo-countdown {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .promo-countdown span {
+            background: rgba(249, 115, 22, 0.2);
+            color: #f97316;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            min-width: 28px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .promo-cta {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .promo-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+        }
+
+        .promo-close {
+            position: absolute;
+            right: 16px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #94a3b8;
+            transition: all 0.3s;
+        }
+
+        .promo-close:hover {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        /* Adjust body padding when banner is visible */
+        body.has-promo-banner {
+            padding-top: 52px;
+        }
+
+        body.has-promo-banner #nav {
+            top: 52px;
+        }
+
+        @media (max-width: 768px) {
+            .promo-banner {
+                padding: 10px 50px 10px 16px;
+            }
+
+            .promo-content {
+                gap: 8px;
+            }
+
+            .promo-separator {
+                display: none;
+            }
+
+            .promo-text {
+                font-size: 0.85rem;
+            }
+
+            .promo-countdown {
+                font-size: 0.8rem;
+            }
+
+            .promo-countdown span {
+                padding: 3px 6px;
+                font-size: 0.85rem;
+                min-width: 24px;
+            }
+
+            .promo-cta {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+
+            body.has-promo-banner {
+                padding-top: 80px;
+            }
+
+            body.has-promo-banner #nav {
+                top: 80px;
+            }
+        }
+
         /* ==================== CHATBOT WIDGET ELITE V2 ==================== */
         .chatbot-widget {
             position: fixed;
@@ -2101,6 +2480,29 @@
     </style>
 </head>
 <body>
+    <!-- Promo Banner with Countdown -->
+    <div id="promo-banner" class="promo-banner">
+        <div class="promo-content">
+            <span class="promo-fire">🔥</span>
+            <span class="promo-text"><strong>OFFRE LANCEMENT -30%</strong></span>
+            <span class="promo-separator">|</span>
+            <span class="promo-countdown">
+                Expire dans
+                <span id="countdown-days">0</span>j
+                <span id="countdown-hours">00</span>h
+                <span id="countdown-minutes">00</span>m
+                <span id="countdown-seconds">00</span>s
+            </span>
+            <a href="#pricing" class="promo-cta">En profiter →</a>
+        </div>
+        <button class="promo-close" onclick="closePromoBanner()" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
     <!-- Navigation -->
     <nav id="nav">
         <div class="nav-container">
@@ -3272,6 +3674,181 @@
                 widget.classList.add('pulse');
             }
         }, 45000);
+    </script>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup" class="exit-popup">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" onclick="closeExitPopup()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="exit-popup-icon">🎁</div>
+            <h3 class="exit-popup-title">Attendez !</h3>
+            <p class="exit-popup-subtitle">Recevez un <strong>AUDIT GRATUIT</strong> de votre site web avant de partir</p>
+            <ul class="exit-popup-benefits">
+                <li><span class="benefit-icon">✓</span> Analyse SEO complète</li>
+                <li><span class="benefit-icon">✓</span> Recommandations personnalisées</li>
+                <li><span class="benefit-icon">✓</span> Rapport détaillé sous 24h</li>
+            </ul>
+            <form id="exit-popup-form" class="exit-popup-form" onsubmit="submitExitForm(event)">
+                <input type="email" id="exit-email" placeholder="Votre email professionnel" required>
+                <button type="submit" class="exit-popup-btn">
+                    <span>Recevoir mon audit gratuit</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </form>
+            <p class="exit-popup-privacy">🔒 Vos données sont protégées. Aucun spam.</p>
+        </div>
+    </div>
+
+    <!-- Promo Banner Countdown Script -->
+    <script>
+        // Compte à rebours - expire dans 7 jours à partir de la première visite
+        (function() {
+            const PROMO_END_KEY = 'devcenturio_promo_end';
+            const PROMO_CLOSED_KEY = 'devcenturio_promo_closed';
+
+            // Vérifier si l'utilisateur a fermé la bannière
+            if (sessionStorage.getItem(PROMO_CLOSED_KEY)) {
+                document.getElementById('promo-banner').classList.add('hidden');
+                return;
+            }
+
+            // Définir ou récupérer la date de fin
+            let endDate = localStorage.getItem(PROMO_END_KEY);
+            if (!endDate) {
+                // Nouvelle visite : définir la fin dans 7 jours
+                const end = new Date();
+                end.setDate(end.getDate() + 7);
+                endDate = end.getTime();
+                localStorage.setItem(PROMO_END_KEY, endDate);
+            }
+
+            endDate = parseInt(endDate);
+
+            // Ajouter la classe au body
+            document.body.classList.add('has-promo-banner');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                if (distance < 0) {
+                    // Offre expirée - cacher la bannière
+                    document.getElementById('promo-banner').classList.add('hidden');
+                    document.body.classList.remove('has-promo-banner');
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').textContent = days;
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+
+            // Mettre à jour toutes les secondes
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+
+        function closePromoBanner() {
+            document.getElementById('promo-banner').classList.add('hidden');
+            document.body.classList.remove('has-promo-banner');
+            sessionStorage.setItem('devcenturio_promo_closed', 'true');
+        }
+    </script>
+
+    <!-- Exit Intent Script -->
+    <script>
+        (function() {
+            const EXIT_SHOWN_KEY = 'devcenturio_exit_shown';
+            const EXIT_CONVERTED_KEY = 'devcenturio_exit_converted';
+            let exitIntentShown = false;
+
+            // Ne pas afficher si déjà converti ou déjà vu cette session
+            if (localStorage.getItem(EXIT_CONVERTED_KEY) || sessionStorage.getItem(EXIT_SHOWN_KEY)) {
+                return;
+            }
+
+            // Détecter l'intention de sortie (souris sort par le haut)
+            document.addEventListener('mouseout', function(e) {
+                if (exitIntentShown) return;
+
+                // Vérifier si la souris sort par le haut de la page
+                if (e.clientY <= 0 && e.relatedTarget === null) {
+                    showExitPopup();
+                }
+            });
+
+            // Afficher aussi après 60 secondes d'inactivité sur mobile
+            let mobileTimeout;
+            if ('ontouchstart' in window) {
+                mobileTimeout = setTimeout(() => {
+                    if (!exitIntentShown) {
+                        showExitPopup();
+                    }
+                }, 60000);
+            }
+
+            function showExitPopup() {
+                if (exitIntentShown) return;
+                exitIntentShown = true;
+                sessionStorage.setItem(EXIT_SHOWN_KEY, 'true');
+                document.getElementById('exit-popup').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            window.showExitPopup = showExitPopup; // Pour tests
+        })();
+
+        function closeExitPopup() {
+            document.getElementById('exit-popup').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function submitExitForm(e) {
+            e.preventDefault();
+            const email = document.getElementById('exit-email').value;
+            const btn = document.querySelector('.exit-popup-btn');
+
+            // Simuler l'envoi (en production, envoyer à un backend)
+            btn.innerHTML = '<span>Envoi en cours...</span>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Marquer comme converti
+                localStorage.setItem('devcenturio_exit_converted', 'true');
+
+                // Afficher succès
+                btn.classList.add('success');
+                btn.innerHTML = '<span>✓ Demande envoyée !</span>';
+
+                // Rediriger vers WhatsApp avec l'email
+                setTimeout(() => {
+                    const message = encodeURIComponent(`Bonjour ! Je souhaite recevoir un audit gratuit de mon site. Mon email : ${email}`);
+                    window.open(`https://wa.me/33658687475?text=${message}`, '_blank');
+                    closeExitPopup();
+                }, 1500);
+            }, 1000);
+        }
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeExitPopup();
+            }
+        });
     </script>
 </body>
 </html>
