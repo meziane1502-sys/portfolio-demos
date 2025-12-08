@@ -1,14 +1,10 @@
-# DevCenturioAI - Portfolio Demos
-# https://meziane1502-sys.github.io/portfolio-demos/
-
+# DevCenturioAI - robots.txt
 User-agent: *
 Allow: /
 
 # Sitemap
 Sitemap: https://meziane1502-sys.github.io/portfolio-demos/sitemap.xml
 
-# Disallow temporary/development files
-Disallow: /node_modules/
+# Disallow admin/dev files
 Disallow: /*.md$
-Disallow: /package.json
-Disallow: /package-lock.json
+Disallow: /index-backup.html
