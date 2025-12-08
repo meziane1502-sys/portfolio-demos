@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatiser son business : par où commencer ? - DevCenturioAI</title>
+    <meta name="description" content="Guide pratique pour identifier les tâches à automatiser et gagner des heures chaque semaine grâce aux bons outils.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --slate-950: #020617;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --primary-500: #f59e0b;
+            --primary-600: #d97706;
+            --green-500: #10b981;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--slate-950);
+            color: var(--slate-300);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* Header */
+        .article-header {
+            padding: 2rem 0 3rem;
+            border-bottom: 1px solid var(--slate-800);
+            margin-bottom: 3rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-500);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-600); }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .article-category {
+            background: linear-gradient(135deg, var(--green-500), var(--primary-500));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .article-date {
+            color: var(--slate-400);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .article-excerpt {
+            font-size: 1.25rem;
+            color: var(--slate-400);
+            line-height: 1.6;
+        }
+
+        /* Content */
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin: 3rem 0 1.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-100);
+            margin: 2rem 0 1rem;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--slate-300);
+        }
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+        .article-content strong { color: white; }
+        .article-content a { color: var(--primary-500); }
+        .article-content a:hover { color: var(--primary-600); }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 {
+            color: var(--primary-500);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Tool cards */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .tool-card {
+            background: var(--slate-900);
+            border: 1px solid var(--slate-800);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+        .tool-card h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .tool-card p {
+            color: var(--slate-400);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        .tool-card .tool-tag {
+            display: inline-block;
+            background: var(--slate-800);
+            color: var(--primary-500);
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Steps */
+        .steps-container {
+            margin: 2rem 0;
+        }
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .step-number {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .step-content p {
+            color: var(--slate-400);
+            margin: 0;
+        }
+
+        /* CTA */
+        .article-cta {
+            background: linear-gradient(135deg, var(--slate-900), var(--slate-800));
+            border: 1px solid var(--slate-700);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .article-cta h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .article-cta p {
+            color: var(--slate-400);
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Footer */
+        .article-footer {
+            border-top: 1px solid var(--slate-800);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .article-footer p {
+            color: var(--slate-400);
+            font-size: 0.875rem;
+        }
+        .article-footer a { color: var(--primary-500); text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .article-title { font-size: 1.75rem; }
+            .article-excerpt { font-size: 1rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="article-header">
+            <a href="../index.html#blog" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                Retour aux articles
+            </a>
+
+            <div class="article-meta">
+                <span class="article-category">Automatisation</span>
+                <span class="article-date">
+                    <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+                    15 Novembre 2025
+                </span>
+                <span class="article-date">
+                    <i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+                    10 min de lecture
+                </span>
+            </div>
+
+            <h1 class="article-title">Automatiser son business : par où commencer ?</h1>
+            <p class="article-excerpt">Guide pratique pour identifier les tâches à automatiser et gagner des heures chaque semaine grâce aux bons outils.</p>
+        </header>
+
+        <article class="article-content">
+            <p>Vous passez des heures sur des tâches répétitives ? Vous répondez toujours aux mêmes questions ? Vous oubliez des relances clients ? L'automatisation peut vous libérer des heures chaque semaine. Voici comment démarrer.</p>
+
+            <h2>Pourquoi automatiser ?</h2>
+            <p>L'automatisation n'est pas un luxe réservé aux grandes entreprises. C'est une <strong>nécessité</strong> pour rester compétitif :</p>
+            <ul>
+                <li><strong>Gagner du temps</strong> : Éliminez les tâches répétitives</li>
+                <li><strong>Réduire les erreurs</strong> : Les machines ne font pas de fautes de frappe</li>
+                <li><strong>Être disponible 24/7</strong> : Vos automatisations travaillent pendant que vous dormez</li>
+                <li><strong>Scaler sans embaucher</strong> : Gérez plus de clients avec la même équipe</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4><i data-lucide="calculator" style="width: 18px; height: 18px;"></i> Le calcul qui fait réfléchir</h4>
+                <p>Si vous gagnez <strong>2 heures par jour</strong> grâce à l'automatisation, c'est <strong>40 heures par mois</strong> récupérées. Au SMIC, ça représente plus de 400€/mois. Au tarif d'un consultant, c'est 2000€+/mois de valeur créée.</p>
+            </div>
+
+            <h2>Étape 1 : Identifier les tâches automatisables</h2>
+            <p>Commencez par lister toutes les tâches répétitives de votre quotidien. Une tâche est automatisable si :</p>
+            <ul>
+                <li>Elle suit <strong>toujours le même processus</strong></li>
+                <li>Elle est déclenchée par un <strong>événement précis</strong></li>
+                <li>Elle ne nécessite pas de <strong>jugement humain</strong> complexe</li>
+                <li>Elle prend <strong>beaucoup de temps</strong> cumulé</li>
+            </ul>
+
+            <h3>Les candidats parfaits à l'automatisation</h3>
+            <ul>
+                <li><strong>Réponses aux questions fréquentes</strong> → Chatbot</li>
+                <li><strong>Prise de rendez-vous</strong> → Calendly/Cal.com</li>
+                <li><strong>Envoi de factures</strong> → Automatisation comptable</li>
+                <li><strong>Relances clients</strong> → Séquences emails</li>
+                <li><strong>Publications réseaux sociaux</strong> → Planification</li>
+                <li><strong>Rapports hebdomadaires</strong> → Dashboards automatisés</li>
+            </ul>
+
+            <h2>Étape 2 : Choisir les bons outils</h2>
+            <p>Voici les outils les plus populaires selon votre niveau technique :</p>
+
+            <h3>Pour les débutants (no-code)</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>Zapier</h4>
+                    <p>Connecte +5000 apps entre elles. Interface drag & drop.</p>
+                    <span class="tool-tag">À partir de 0€</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Make (ex-Integromat)</h4>
+                    <p>Plus puissant que Zapier, workflows visuels complexes.</p>
+                    <span class="tool-tag">À partir de 0€</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Notion</h4>
+                    <p>Base de données + automatisations simples intégrées.</p>
+                    <span class="tool-tag">Gratuit</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Calendly</h4>
+                    <p>Prise de RDV automatisée avec rappels.</p>
+                    <span class="tool-tag">Gratuit</span>
+                </div>
+            </div>
+
+            <h3>Pour les utilisateurs intermédiaires</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>n8n</h4>
+                    <p>Alternative open-source à Zapier. Self-hosted possible.</p>
+                    <span class="tool-tag">Open Source</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Airtable</h4>
+                    <p>Base de données avec automatisations et API.</p>
+                    <span class="tool-tag">Freemium</span>
+                </div>
+            </div>
+
+            <h3>Pour les développeurs</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>Python + Cron</h4>
+                    <p>Scripts personnalisés pour tout automatiser.</p>
+                    <span class="tool-tag">Gratuit</span>
+                </div>
+                <div class="tool-card">
+                    <h4>APIs + Webhooks</h4>
+                    <p>Intégrations sur-mesure entre vos outils.</p>
+                    <span class="tool-tag">Variable</span>
+                </div>
+            </div>
+
+            <h2>Étape 3 : Commencer petit</h2>
+            <p>Ne cherchez pas à tout automatiser d'un coup. Suivez cette méthode :</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Choisir UNE tâche</h4>
+                        <p>La plus répétitive et la plus simple à automatiser.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Documenter le processus actuel</h4>
+                        <p>Écrivez chaque étape en détail, comme pour un robot.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Créer l'automatisation</h4>
+                        <p>Utilisez l'outil adapté à votre niveau.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Tester en conditions réelles</h4>
+                        <p>Surveillez pendant 1-2 semaines, ajustez si besoin.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Passer à la suivante</h4>
+                        <p>Une fois stable, automatisez la prochaine tâche.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>5 automatisations à mettre en place cette semaine</h2>
+
+            <h3>1. Réponse automatique aux emails</h3>
+            <p>Configurez un message d'accusé de réception avec délai de réponse estimé. Le client sait que son message est reçu.</p>
+
+            <h3>2. Prise de RDV en ligne</h3>
+            <p>Plus d'allers-retours pour trouver un créneau. Le client choisit, vous recevez une notification.</p>
+
+            <h3>3. Rappels automatiques</h3>
+            <p>24h avant un RDV, envoyez un SMS/email de confirmation. Réduisez les no-shows de 50%.</p>
+
+            <h3>4. Sauvegarde automatique</h3>
+            <p>Vos documents importants sauvegardés chaque nuit sur le cloud. Plus jamais de perte de données.</p>
+
+            <h3>5. Veille concurrentielle</h3>
+            <p>Alertes Google + agrégateur RSS pour suivre votre marché sans effort.</p>
+
+            <div class="highlight-box">
+                <h4><i data-lucide="zap" style="width: 18px; height: 18px;"></i> Pro tip</h4>
+                <p>Commencez par les automatisations qui vous font gagner du temps <strong>ET</strong> améliorent l'expérience client. Double bénéfice !</p>
+            </div>
+
+            <h2>Les erreurs à éviter</h2>
+            <ul>
+                <li><strong>Vouloir tout automatiser</strong> : Certaines interactions humaines ont de la valeur</li>
+                <li><strong>Oublier les cas particuliers</strong> : Prévoyez toujours une sortie manuelle</li>
+                <li><strong>Ne pas tester</strong> : Une mauvaise automatisation peut faire plus de mal que de bien</li>
+                <li><strong>Ignorer les erreurs</strong> : Mettez en place des alertes quand ça casse</li>
+            </ul>
+
+            <div class="article-cta">
+                <h3>Besoin d'aide pour automatiser ?</h3>
+                <p>Nous créons des automatisations sur-mesure avec n8n, Make, et des solutions IA. Gagnez des heures chaque semaine.</p>
+                <a href="https://wa.me/33658687475?text=Bonjour,%20je%20souhaite%20automatiser%20certaines%20tâches%20de%20mon%20business" target="_blank" class="btn btn-primary">
+                    <i data-lucide="settings"></i>
+                    Discuter de mes automatisations
+                </a>
+            </div>
+        </article>
+
+        <footer class="article-footer">
+            <p>&copy; 2025 DevCenturioAI · <a href="../index.html">Accueil</a> · <a href="../mentions-legales.html">Mentions légales</a></p>
+        </footer>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
