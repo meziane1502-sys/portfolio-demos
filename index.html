@@ -29,6 +29,118 @@
     <meta name="twitter:description" content="Solutions digitales sur mesure : Sites web, Applications IA, Automatisation.">
     <meta name="twitter:image" content="https://meziane1502-sys.github.io/portfolio-demos/images/og-image.jpg">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://meziane1502-sys.github.io/portfolio-demos/">
+
+    <!-- Additional SEO Meta -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="DevCenturioAI">
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="France">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://meziane1502-sys.github.io/portfolio-demos/#organization",
+                "name": "DevCenturioAI",
+                "url": "https://meziane1502-sys.github.io/portfolio-demos/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://meziane1502-sys.github.io/portfolio-demos/images/og-image.jpg",
+                    "width": 1200,
+                    "height": 630
+                },
+                "description": "Agence de solutions digitales premium : Sites web, Applications IA, Automatisation",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+33658687475",
+                    "contactType": "sales",
+                    "availableLanguage": ["French", "English"]
+                },
+                "sameAs": [
+                    "https://wa.me/33658687475"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://meziane1502-sys.github.io/portfolio-demos/#website",
+                "url": "https://meziane1502-sys.github.io/portfolio-demos/",
+                "name": "DevCenturioAI",
+                "description": "Solutions digitales sur mesure : Sites web, Applications IA, Automatisation",
+                "publisher": {
+                    "@id": "https://meziane1502-sys.github.io/portfolio-demos/#organization"
+                },
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://meziane1502-sys.github.io/portfolio-demos/#webpage",
+                "url": "https://meziane1502-sys.github.io/portfolio-demos/",
+                "name": "DevCenturioAI - Solutions Digitales Premium",
+                "description": "Découvrez nos démos de solutions digitales professionnelles : Sites web, IA, automatisation.",
+                "isPartOf": {
+                    "@id": "https://meziane1502-sys.github.io/portfolio-demos/#website"
+                },
+                "about": {
+                    "@id": "https://meziane1502-sys.github.io/portfolio-demos/#organization"
+                },
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Développement Web et IA",
+                "provider": {
+                    "@id": "https://meziane1502-sys.github.io/portfolio-demos/#organization"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "France"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services DevCenturioAI",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Site Web Starter",
+                                "description": "Site vitrine professionnel"
+                            },
+                            "price": "490",
+                            "priceCurrency": "EUR"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Site Web Business",
+                                "description": "Site web avancé avec fonctionnalités premium"
+                            },
+                            "price": "890",
+                            "priceCurrency": "EUR"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Dashboard Essentiel",
+                                "description": "Dashboard analytique personnalisé"
+                            },
+                            "price": "1500",
+                            "priceCurrency": "EUR"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -2626,7 +2738,11 @@
                 <!-- Demo 1 - Large -->
                 <div class="demo-card demo-card-large reveal">
                     <div class="demo-preview">
-                        <img src="images/demos/depanpro.webp" alt="DepanPro 24/7" loading="lazy">
+                        <picture>
+                            <source srcset="images/demos/depanpro-mockup-new-optimized.webp" type="image/webp">
+                            <source srcset="images/demos/depanpro-compressed.jpg" type="image/jpeg">
+                            <img src="images/demos/depanpro.webp" alt="DepanPro 24/7 - Service de dépannage automobile" loading="lazy" width="600" height="400">
+                        </picture>
                         <span class="demo-tag">Site Vitrine</span>
                     </div>
                     <div class="demo-content">
@@ -2642,7 +2758,11 @@
                 <!-- Demo 2 - Small -->
                 <div class="demo-card demo-card-small reveal">
                     <div class="demo-preview">
-                        <img src="images/demos/autopro.webp" alt="AutoPro IA" loading="lazy">
+                        <picture>
+                            <source srcset="images/demos/autopro-mockup-new-optimized.webp" type="image/webp">
+                            <source srcset="images/demos/autopro-compressed.jpg" type="image/jpeg">
+                            <img src="images/demos/autopro.webp" alt="AutoPro IA - Plateforme automobile intelligente" loading="lazy" width="600" height="400">
+                        </picture>
                         <span class="demo-tag">IA</span>
                     </div>
                     <div class="demo-content">
@@ -2658,7 +2778,11 @@
                 <!-- Demo 3 - Small -->
                 <div class="demo-card demo-card-small reveal">
                     <div class="demo-preview">
-                        <img src="images/demos/shopsmart.webp" alt="ShopSmart IA" loading="lazy">
+                        <picture>
+                            <source srcset="images/demos/shopsmart-mockup-new-optimized.webp" type="image/webp">
+                            <source srcset="images/demos/shopsmart-compressed.jpg" type="image/jpeg">
+                            <img src="images/demos/shopsmart.webp" alt="ShopSmart IA - E-commerce intelligent" loading="lazy" width="600" height="400">
+                        </picture>
                         <div class="coming-soon-overlay">
                             <span class="coming-soon-badge">
                                 <i data-lucide="clock"></i>
